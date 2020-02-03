@@ -1,23 +1,19 @@
-class Event {
-    constructor(message) {
-        this.message = message;
-    }
-    toString() {
-        console.log(this.message);
-    }
-}
-
 class Graph {
     //constructor indicating the number of vertices
     constructor(noOfVertices) {
         this.noOfVertices = noOfVertices;
         this.AdjList = new Map();
+        this.currentVertex = null;
     }
 
     //add a vertex to graph
     addVertex(v) {
         //initialize adjacency list with null
         this.AdjList.set(v, []);
+
+        //initialize current vertex if not set
+        if (this.currentVertex == null)
+            this.currentVertex = v;
     }
 
     //add edge to graph
@@ -27,6 +23,19 @@ class Graph {
 
         //add edge from w to v
         this.AdjList.get(w).push(v);
+    }
+
+    //transition from vertex to vertex
+    transition(dest) {
+        var inGraph = false;
+        for (var i in this.AdjList.get(this.currentVertex)) {
+            inGraph = i == dest;
+        }
+        if (inGraph) {
+            this.currentVertex = dest;
+        } else {
+            console.log("Destination did not appear in adjacent list for vertex");
+        }
     }
 
     printGraph() {
@@ -67,6 +76,3 @@ g.addEdge('two', 'four');
 g.addEdge('three', 'five');
 
 g.printGraph();
-
-//print event function
-var e = new Event("Run");
