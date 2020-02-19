@@ -58,6 +58,8 @@ class Graph {
         }
     }
 }
+//generate events
+var intro = new Event("Welcome to the improv, where things are about to get a little strange.<br>Let's start with a little warmup. Bunny Bunny", ["Bunny Bunny", "Toki Toki", "Do nothing"]);
 //Test Graph
 
 //generate a graph

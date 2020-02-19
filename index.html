@@ -23,5 +23,13 @@
     <!--Javascript for graph testing-->
     <script src="graph.js"></script>
     <script src="event.js"></script>
-    <button type="button" id="clickMe" onclick="e.toString()"> BEGIN </button>
+    <script src="cookieBaker.js"></script>
+
+    <!--Save info in javascript for later access-->
+    <a><button type="button" id="clickMe" onclick="gatherInfo()"> BEGIN </button></a>
+
+    <p id="display"></p>
+    <script>
+        document.getElementById("display").innerHTML = document.cookie;
+    </script>
 </body>
