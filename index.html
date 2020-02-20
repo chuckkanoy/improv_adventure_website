@@ -21,15 +21,13 @@
     <br> Once info has been entered, please click the "BEGIN" button!<br>
 
     <!--Javascript for graph testing-->
-    <script src="graph.js"></script>
-    <script src="event.js"></script>
-    <script src="cookieBaker.js"></script>
+    <script src="Graph.js"></script>
+    <script src="Event.js"></script>
+    <script src="InputHandler.js"></script>
 
     <!--Save info in javascript for later access-->
-    <a><button type="button" id="clickMe" onclick="gatherInfo()"> BEGIN </button></a>
+    <button type="button" id="clickMe" onclick="gatherInfo()"> BEGIN </button>
 
+    <!--Display demo-->
     <p id="display"></p>
-    <script>
-        document.getElementById("display").innerHTML = document.cookie;
-    </script>
 </body>
