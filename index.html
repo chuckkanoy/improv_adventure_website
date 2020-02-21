@@ -2,32 +2,49 @@
 
 <head>
     <title>TBD Adventure!</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
-    Hello! Welcome to the TBD Adventure game by Chuck Kanoy.
-    <br>
-    <br> Enter the following information about the club board:
-    <br>
-    <br> President: <input type="text" id="president">
-    <br> Vice President: <input type="text" id="vp">
-    <br> Treasurer: <input type="text" id="treasurer">
-    <br> Secretary: <input type="text" id="secretary">
-    <br> Webmaster: <input type="text" id="webmaster">
-    <br> Publicity Coordinator: <input type="text" id="pc">
-    <br> Equipment Manager: <input type="text" id="em">
-    <br>
-    <br>
-    <br> Once info has been entered, please click the "BEGIN" button!<br>
+    <div id="container">
+        <!--Gather variables for gameplay-->
+        <div id="opening">
+            Hello! Welcome to the TBD Adventure game by Chuck Kanoy.
+            <br>
+            <br> Enter the following information about the club board:
+            <br>
+            <form id="mainInput">
+                <br> President: <input type="text" id="president" placeholder="PRESIDENT">
+                <br> Vice President: <input type="text" id="vp" placeholder="VP">
+                <br> Treasurer: <input type="text" id="treasurer" placeholder="TREASURER">
+                <br> Secretary: <input type="text" id="secretary" placeholder="SECRETARY">
+                <br> Webmaster: <input type="text" id="webmaster" placeholder="WEBMASTER">
+                <br> Publicity Coordinator: <input type="text" id="pc" placeholder="PUBLICITY COORDINATOR">
+                <br> Equipment Manager: <input type="text" id="em" placeholder="EQUIPMENT MANAGER">
+            </form>
+            <br>
+            <br> Once info has been entered, please click the "BEGIN" button!<br>
 
-    <!--Javascript for graph testing-->
-    <script src="Graph.js"></script>
-    <script src="Event.js"></script>
-    <script src="InputHandler.js"></script>
+            <!--Javascript for graph testing-->
+            <script src="Graph.js"></script>
+            <script src="Event.js"></script>
+            <script src="InputHandler.js"></script>
 
-    <!--Save info in javascript for later access-->
-    <button type="button" id="clickMe" onclick="gatherInfo()"> BEGIN </button>
+            <!--Save info in javascript for later access-->
+            <button type="button" id="clickMe" onclick="gatherInfo()"> BEGIN </button>
 
-    <!--Display demo-->
-    <p id="display"></p>
+            <!--Display demo-->
+            <p id="display"></p>
+        </div>
+
+        <!--Actually display game-->
+        <div id="playing" style="visibility: hidden;">
+            You are now playing the game.
+        </div>
+
+        <!--Display game over and loop if necessary-->
+        <div id="game-over" style="visibility: hidden;">
+            You done.
+        </div>
+    </div>
 </body>

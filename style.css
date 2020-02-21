@@ -1,0 +1,9 @@
+#playing,
+#opening,
+#game-over {
+    position: absolute;
+}
+
+#container {
+    position: relative;
+}

@@ -11,11 +11,15 @@ function gatherInfo() {
     webmaster = document.getElementById("pc").value;
     equipment = document.getElementById("em").value;
 
-    verify();
+    if (verify()) {
+        document.getElementById("opening").style.visibility = "hidden";
+        document.getElementById("playing").style.visibility = "visible";
+    }
 }
 
 //verify the information given
 function verify() {
     var verified = confirm("Is the following information correct?\nPresident: " + pres + "\nVice President: " + vp + "\nTreasurer: " + treasurer + "\nSecretary: " +
         secretary + "\nWeb Master: " + webmaster + "\nPublicity Coordinator: " + pc + "\nEquipment Manager: " + equipment);
+    return verified;
 }
