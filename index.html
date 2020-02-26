@@ -25,10 +25,24 @@
             <br>
             <br> Once info has been entered, please click the "BEGIN" button!<br>
 
-            <!--Javascript for graph testing-->
+            <!--Javascript sources-->
             <script src="Graph.js"></script>
             <script src="Event.js"></script>
             <script src="InputHandler.js"></script>
+
+            <!--Javascript for generating graph basis-->
+            <script>
+                //generate events
+                var bunny = new Event("Bunny", "You bunny bunny over to " + pres + " and the game continues over and over.<br>", ["n/a", "n/a", "n/a"]);
+                var nothing = new Event("Nothing", "You do nothing and everyone looks at you including " + pc + " who runs up and smacks a poster to your forehead.", ["n/a", "n/a", "n/a"]);
+                var intro = new Event("Intro", "Welcome to the improv, where things are about to get a little strange.<br>Let's start with a little warmup. Bunny Bunny", [bunny, bunny, nothing]);
+                var story = new Graph(3);
+                story.addVertex(intro);
+                story.addVertex(bunny);
+                story.addVertex(nothing);
+                story.addEdge(intro, bunny);
+                story.addEdge(intro, nothing);
+            </script>
 
             <!--Save info in javascript for later access-->
             <button type="button" id="clickMe" onclick="gatherInfo()"> BEGIN </button>
@@ -39,7 +53,42 @@
 
         <!--Actually display game-->
         <div id="playing" style="visibility: hidden;">
-            You are now playing the game.
+            <p id="game-message"></p>
+            <br>
+            <button type="button" id="option1" onClick="transferOption1()"></button>
+            <br>
+            <button type="button" id="option2" onClick="transferOption2()"></button>
+            <br>
+            <button type="button" id="option3" onClick="transferOption3()"></button>
+            <br>
+
+            <script>
+                //display the options of the current event
+                function displayData() {
+                    document.getElementById("game-message").innerHTML = story.currentVertex.message;
+                    for (i = 0; i < 3; i++) {
+                        document.getElementById("option" + (i + 1)).innerHTML = story.currentVertex.options[i].toString();
+                    }
+                }
+
+                //functionality of buttons
+                function transferOption1() {
+                    story.currentVertex = story.currentVertex.options[0];
+                    displayData();
+                }
+
+                function transferOption2() {
+                    story.currentVertex = story.currentVertex.options[1];
+                    displayData();
+                }
+
+                function transferOption3() {
+                    story.currentVertex = story.currentVertex.options[2];
+                    displayData();
+                }
+
+                displayData();
+            </script>
         </div>
 
         <!--Display game over and loop if necessary-->

@@ -1,6 +1,7 @@
 //class for each event in game
 class Event {
-    constructor(message, options) {
+    constructor(title, message, options) {
+            this.title = title;
             this.message = message;
             this.options = [];
             for (var i in options) {
@@ -9,12 +10,6 @@ class Event {
         }
         //prints different elements of event
     toString() {
-        console.log(this.message);
-        for (var i in this.options) {
-            console.log(this.options[i]);
-        }
+        return this.title;
     }
 }
-
-//generate events
-var e = new Event("An Event", ["Run", "Stay", "Fly away"]);

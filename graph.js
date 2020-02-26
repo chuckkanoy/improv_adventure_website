@@ -25,19 +25,6 @@ class Graph {
         this.AdjList.get(w).push(v);
     }
 
-    //transition from vertex to vertex
-    transition(dest) {
-        var inGraph = false;
-        for (var i in this.AdjList.get(this.currentVertex)) {
-            inGraph = i == dest;
-        }
-        if (inGraph) {
-            this.currentVertex = dest;
-        } else {
-            console.log("Destination did not appear in adjacent list for vertex");
-        }
-    }
-
     printGraph() {
         //get list of vertices
         var keys = this.AdjList.keys();
@@ -58,23 +45,3 @@ class Graph {
         }
     }
 }
-//generate events
-var intro = new Event("Welcome to the improv, where things are about to get a little strange.<br>Let's start with a little warmup. Bunny Bunny", ["Bunny Bunny", "Toki Toki", "Do nothing"]);
-//Test Graph
-
-//generate a graph
-var g = new Graph(5);
-var vertices = ['one', 'two', 'three', 'four', 'five'];
-
-//add vertices
-for (var i = 0; i < vertices.length; i++) {
-    g.addVertex(vertices[i]);
-}
-
-//add edges
-g.addEdge('one', 'two');
-g.addEdge('one', 'five');
-g.addEdge('two', 'four');
-g.addEdge('three', 'five');
-
-g.printGraph();
