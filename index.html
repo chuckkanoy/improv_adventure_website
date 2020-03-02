@@ -32,16 +32,21 @@
 
             <!--Javascript for generating graph basis-->
             <script>
-                //generate events
-                var bunny = new Event("Bunny", "You bunny bunny over to " + pres + " and the game continues over and over.<br>", ["n/a", "n/a", "n/a"]);
-                var nothing = new Event("Nothing", "You do nothing and everyone looks at you including " + pc + " who runs up and smacks a poster to your forehead.", ["n/a", "n/a", "n/a"]);
-                var intro = new Event("Intro", "Welcome to the improv, where things are about to get a little strange.<br>Let's start with a little warmup. Bunny Bunny", [bunny, bunny, nothing]);
-                var story = new Graph(3);
-                story.addVertex(intro);
-                story.addVertex(bunny);
-                story.addVertex(nothing);
-                story.addEdge(intro, bunny);
-                story.addEdge(intro, nothing);
+                //ENDING EVENT
+                var end = new Event("End", "", ["", "", ""]);
+                //events for opening loop
+                var intro3 = new Event("Macarena", "You do the macarena.<br>Everyone cheers you on.", ["", "", ""])
+                var intro2 = new Event("Bunny", "You bunny bunny over to " + pres + " and the game continues over and over.<br>", [end, "", ""]);
+                var intro1 = new Event("Nothing", "You do nothing and everyone looks at you including " + pc + " who runs up and smacks a poster to your forehead.", [end, end, end]);
+                var start = new Event("Intro", "Welcome to the improv, where things are about to get a little strange.<br>Let's start with a little warmup. Bunny Bunny", [intro1, intro2, intro3]);
+                var story = new Graph(4);
+                story.addVertex(start);
+                story.addVertex(intro1);
+                story.addVertex(intro2);
+                story.addVertex(intro3);
+                story.addEdge(start, intro1);
+                story.addEdge(start, intro2);
+                story.addEdge(start, intro3);
             </script>
 
             <!--Save info in javascript for later access-->
@@ -65,9 +70,21 @@
             <script>
                 //display the options of the current event
                 function displayData() {
-                    document.getElementById("game-message").innerHTML = story.currentVertex.message;
-                    for (i = 0; i < 3; i++) {
-                        document.getElementById("option" + (i + 1)).innerHTML = story.currentVertex.options[i].toString();
+                    if (story.currentVertex.title == "End") {
+                        document.getElementById("playing").style.visibility = "hidden";
+                        document.getElementById("game-over").style.visibility = "visible";
+                    } else {
+                        document.getElementById("game-message").innerHTML = story.currentVertex.message;
+                        for (i = 0; i < 3; i++) {
+                            //only show button if that option is available
+                            if (story.currentVertex.options[i] == "") {
+                                document.getElementById("option" + (i + 1)).style.visibility = "hidden";
+                                document.getElementById("option" + (i + 1)).style.float = "right";
+                                document.getElementById("option" + (i + 1)).style.position = "absolute";
+                            } else {
+                                document.getElementById("option" + (i + 1)).innerHTML = story.currentVertex.options[i].toString();
+                            }
+                        }
                     }
                 }
 
@@ -94,6 +111,22 @@
         <!--Display game over and loop if necessary-->
         <div id="game-over" style="visibility: hidden;">
             You done.
+            <br>
+            <br>
+
+            <button type="button" id="option3" onClick="restart()">RESTART</button>
+
+            <script>
+                function restart() {
+                    //change visibility of elements
+                    document.getElementById("game-over").style.visibility = "hidden";
+                    document.getElementById("opening").style.visibility = "visible";
+
+                    //reset the graph
+                    story.currentVertex = start;
+                    displayData();
+                }
+            </script>
         </div>
     </div>
 </body>

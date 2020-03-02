@@ -1,6 +1,7 @@
 //declare variables
 var pres, vp, treasurer, secretary, pc, webmaster, equipment;
 
+
 //take in information and display it
 function gatherInfo() {
     pres = document.getElementById("president").value;
