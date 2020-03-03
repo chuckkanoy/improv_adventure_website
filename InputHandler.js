@@ -1,6 +1,6 @@
 //declare variables
 var pres, vp, treasurer, secretary, pc, webmaster, equipment;
-
+var presC, vpC, treasurerC, secretaryC, pcC, webmasterC, equipmentC;
 
 //take in information and display it
 function gatherInfo() {
@@ -23,4 +23,9 @@ function verify() {
     var verified = confirm("Is the following information correct?\nPresident: " + pres + "\nVice President: " + vp + "\nTreasurer: " + treasurer + "\nSecretary: " +
         secretary + "\nWeb Master: " + webmaster + "\nPublicity Coordinator: " + pc + "\nEquipment Manager: " + equipment);
     return verified;
+}
+
+//create a copy of value in text box
+function updatePres(other) {
+    $('#pres').val($(other).val())
 }

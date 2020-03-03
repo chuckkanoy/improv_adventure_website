@@ -3,18 +3,27 @@
 <head>
     <title>TBD Adventure!</title>
     <link href="style.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 </head>
 
 <body>
     <div id="container">
         <!--Gather variables for gameplay-->
         <div id="opening">
+            <!--Javascript sources-->
+            <script src="Graph.js"></script>
+            <script src="Event.js"></script>
+            <script src="InputHandler.js"></script>
+            <!-- <script>
+                
+            </script> -->
+
             Hello! Welcome to the TBD Adventure game by Chuck Kanoy.
             <br>
             <br> Enter the following information about the club board:
             <br>
             <form id="mainInput">
-                <br> President: <input type="text" id="president" placeholder="PRESIDENT">
+                <br> President: <input type="text" id="president" placeholder="PRESIDENT" onkeyup="updatePres(this);">
                 <br> Vice President: <input type="text" id="vp" placeholder="VP">
                 <br> Treasurer: <input type="text" id="treasurer" placeholder="TREASURER">
                 <br> Secretary: <input type="text" id="secretary" placeholder="SECRETARY">
@@ -22,13 +31,18 @@
                 <br> Publicity Coordinator: <input type="text" id="pc" placeholder="PUBLICITY COORDINATOR">
                 <br> Equipment Manager: <input type="text" id="em" placeholder="EQUIPMENT MANAGER">
             </form>
+            <!-- Make copies of useful variables -->
+            <div id="copies" style="visibility: visible;">
+                <p id="pres"></p>
+                <p id="vice"></p>
+                <p id="treas"></p>
+                <p id="sec"></p>
+                <p id="web"></p>
+                <p id="pc"></p>
+                <p id="equip"></p>
+            </div>
             <br>
             <br> Once info has been entered, please click the "BEGIN" button!<br>
-
-            <!--Javascript sources-->
-            <script src="Graph.js"></script>
-            <script src="Event.js"></script>
-            <script src="InputHandler.js"></script>
 
             <!--Javascript for generating graph basis-->
             <script>
