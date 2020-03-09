@@ -29,9 +29,11 @@
             <script src="Graph.js"></script>
             <script src="Event.js"></script>
             <script src="InputHandler.js"></script>
+            <script src="Binding.js"></script>
 
             <!--Javascript for generating graph basis-->
             <script>
+                
                 //ENDING EVENT
                 var end = new Event("End", "", ["", "", ""]);
                 //events for opening loop
@@ -73,16 +75,21 @@
                     if (story.currentVertex.title == "End") {
                         document.getElementById("playing").style.visibility = "hidden";
                         document.getElementById("game-over").style.visibility = "visible";
+                        for (i = 0; i < 3; i++) {
+                            document.getElementById("option" + (i + 1)).style.visibility = "hidden";
+                        }
                     } else {
                         document.getElementById("game-message").innerHTML = story.currentVertex.message;
                         for (i = 0; i < 3; i++) {
                             //only show button if that option is available
                             if (story.currentVertex.options[i] == "") {
                                 document.getElementById("option" + (i + 1)).style.visibility = "hidden";
-                                document.getElementById("option" + (i + 1)).style.float = "right";
-                                document.getElementById("option" + (i + 1)).style.position = "absolute";
                             } else {
-                                document.getElementById("option" + (i + 1)).innerHTML = story.currentVertex.options[i].toString();
+                                if (document.getElementById("playing").style.visibility == "visible"){
+                                    document.getElementById("option" + (i + 1)).style.visibility = "visible";
+                                    document.getElementById("option" + (i + 1)).innerHTML = story.currentVertex.options[i].toString();
+                                    console.log(story.currentVertex.options[i]);
+                                }
                             }
                         }
                     }
