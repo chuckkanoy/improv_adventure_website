@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<head>
+    <title>TBD Adventure!</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+</head>
+
+<body>
+    <!--Javascript sources-->
+    <script src="Graph.js"></script>
+    <script src="Event.js"></script>
+    <script src="InputHandler.js"></script>
+
+    <div id="container">
+        <!--Display game over and loop if necessary-->
+        <div id="game-over" style="visibility: hidden;">
+            You done.
+            <br>
+            <br>
+
+            <a href="index.html"><button type="button" id="option3" onClick="restart()">RESTART</button></a>
+
+            <script>
+                function restart() {
+                    //reset the graph
+                    story.currentVertex = start;
+                }
+            </script>
+        </div>
+    </div>
+</body>

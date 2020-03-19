@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<head>
+    <title>TBD Adventure!</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+</head>
+
+<body>
+    <!--Javascript sources-->
+    <script src="Graph.js"></script>
+    <script src="Event.js"></script>
+    <script src="InputHandler.js"></script>
+
+    <div id="container">
+        <!--Actually display game-->
+        <div id="playing" style="visibility: hidden;">
+            <p id="game-message"></p>
+            <br>
+            <button type="button" id="option1" onClick="transferOption(0)"></button>
+            <br>
+            <button type="button" id="option2" onClick="transferOption(1)"></button>
+            <br>
+            <button type="button" id="option3" onClick="transferOption(2)"></button>
+            <br>
+
+            <script>
+                //ENDING EVENT
+                var end = new Event("End", "", ["", "", ""]);
+                //events for opening loop
+                var intro3 = new Event("Macarena", "You do the macarena.<br>Everyone cheers you on.", [end, "", ""]);
+                var intro2 = new Event("Bunny", "You bunny bunny over to " + pres + " and the game continues over and over.<br>", [end, "", ""]);
+                var intro1 = new Event("Nothing", "You do nothing and everyone looks at you including " + pc + " who runs up and smacks a poster to your forehead.", [end, end, end]);
+                var start = new Event("Intro", "Welcome to the improv, where things are about to get a little strange.<br>Let's start with a little warmup. Bunny Bunny", [intro1, intro2, intro3]);
+                var story = new Graph(4);
+                story.addVertex(start);
+                story.addVertex(intro1);
+                story.addVertex(intro2);
+                story.addVertex(intro3);
+                story.addEdge(start, intro1);
+                story.addEdge(start, intro2);
+                story.addEdge(start, intro3);
+
+                //display the options of the current event
+                function displayData() {
+                    if (story.currentVertex.title == "End") {
+                        window.location.href = "game-over.html";
+                    } else {
+                        document.getElementById("game-message").innerHTML = story.currentVertex.message;
+                        for (i = 0; i < 3; i++) {
+                            //only show button if that option is available
+                            if (story.currentVertex.options[i] == "") {
+                                document.getElementById("option" + (i + 1)).style.visibility = "hidden";
+                            } else {
+                                document.getElementById("option" + (i + 1)).innerHTML = story.currentVertex.options[i].toString();
+                                document.getElementById("option" + (i + 1)).style.visibility = "visible";
+                            }
+                        }
+                    }
+                }
+
+                //functionality of buttons
+                function transferOption(i) {
+                    story.currentVertex = story.currentVertex.options[i];
+                    displayData();
+                }
+
+                displayData();
+            </script>
+        </div>
+    </div>
+</body>

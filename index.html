@@ -14,16 +14,13 @@
             <script src="Graph.js"></script>
             <script src="Event.js"></script>
             <script src="InputHandler.js"></script>
-            <!-- <script>
-                
-            </script> -->
 
             Hello! Welcome to the TBD Adventure game by Chuck Kanoy.
             <br>
             <br> Enter the following information about the club board:
             <br>
             <form id="mainInput">
-                <br> President: <input type="text" id="president" placeholder="PRESIDENT" onkeyup="updatePres(this);">
+                <br> President: <input type="text" id="president" placeholder="PRESIDENT">
                 <br> Vice President: <input type="text" id="vp" placeholder="VP">
                 <br> Treasurer: <input type="text" id="treasurer" placeholder="TREASURER">
                 <br> Secretary: <input type="text" id="secretary" placeholder="SECRETARY">
@@ -31,116 +28,14 @@
                 <br> Publicity Coordinator: <input type="text" id="pc" placeholder="PUBLICITY COORDINATOR">
                 <br> Equipment Manager: <input type="text" id="em" placeholder="EQUIPMENT MANAGER">
             </form>
-            <!-- Make copies of useful variables -->
-            <div id="copies" style="visibility: visible;">
-                <p id="pres"></p>
-                <p id="vice"></p>
-                <p id="treas"></p>
-                <p id="sec"></p>
-                <p id="web"></p>
-                <p id="pc"></p>
-                <p id="equip"></p>
-            </div>
             <br>
             <br> Once info has been entered, please click the "BEGIN" button!<br>
 
-            <!--Javascript for generating graph basis-->
-            <script>
-                //ENDING EVENT
-                var end = new Event("End", "", ["", "", ""]);
-                //events for opening loop
-                var intro3 = new Event("Macarena", "You do the macarena.<br>Everyone cheers you on.", ["", "", ""])
-                var intro2 = new Event("Bunny", "You bunny bunny over to " + pres + " and the game continues over and over.<br>", [end, "", ""]);
-                var intro1 = new Event("Nothing", "You do nothing and everyone looks at you including " + pc + " who runs up and smacks a poster to your forehead.", [end, end, end]);
-                var start = new Event("Intro", "Welcome to the improv, where things are about to get a little strange.<br>Let's start with a little warmup. Bunny Bunny", [intro1, intro2, intro3]);
-                var story = new Graph(4);
-                story.addVertex(start);
-                story.addVertex(intro1);
-                story.addVertex(intro2);
-                story.addVertex(intro3);
-                story.addEdge(start, intro1);
-                story.addEdge(start, intro2);
-                story.addEdge(start, intro3);
-            </script>
-
             <!--Save info in javascript for later access-->
-            <button type="button" id="clickMe" onclick="gatherInfo()"> BEGIN </button>
+            <a href="playing.html"><button type="button" id="clickMe" onclick="gatherInfo()"> BEGIN </button></a>
 
             <!--Display demo-->
             <p id="display"></p>
-        </div>
-
-        <!--Actually display game-->
-        <div id="playing" style="visibility: hidden;">
-            <p id="game-message"></p>
-            <br>
-            <button type="button" id="option1" onClick="transferOption1()"></button>
-            <br>
-            <button type="button" id="option2" onClick="transferOption2()"></button>
-            <br>
-            <button type="button" id="option3" onClick="transferOption3()"></button>
-            <br>
-
-            <script>
-                //display the options of the current event
-                function displayData() {
-                    if (story.currentVertex.title == "End") {
-                        document.getElementById("playing").style.visibility = "hidden";
-                        document.getElementById("game-over").style.visibility = "visible";
-                    } else {
-                        document.getElementById("game-message").innerHTML = story.currentVertex.message;
-                        for (i = 0; i < 3; i++) {
-                            //only show button if that option is available
-                            if (story.currentVertex.options[i] == "") {
-                                document.getElementById("option" + (i + 1)).style.visibility = "hidden";
-                                document.getElementById("option" + (i + 1)).style.float = "right";
-                                document.getElementById("option" + (i + 1)).style.position = "absolute";
-                            } else {
-                                document.getElementById("option" + (i + 1)).innerHTML = story.currentVertex.options[i].toString();
-                            }
-                        }
-                    }
-                }
-
-                //functionality of buttons
-                function transferOption1() {
-                    story.currentVertex = story.currentVertex.options[0];
-                    displayData();
-                }
-
-                function transferOption2() {
-                    story.currentVertex = story.currentVertex.options[1];
-                    displayData();
-                }
-
-                function transferOption3() {
-                    story.currentVertex = story.currentVertex.options[2];
-                    displayData();
-                }
-
-                displayData();
-            </script>
-        </div>
-
-        <!--Display game over and loop if necessary-->
-        <div id="game-over" style="visibility: hidden;">
-            You done.
-            <br>
-            <br>
-
-            <button type="button" id="option3" onClick="restart()">RESTART</button>
-
-            <script>
-                function restart() {
-                    //change visibility of elements
-                    document.getElementById("game-over").style.visibility = "hidden";
-                    document.getElementById("opening").style.visibility = "visible";
-
-                    //reset the graph
-                    story.currentVertex = start;
-                    displayData();
-                }
-            </script>
         </div>
     </div>
 </body>
