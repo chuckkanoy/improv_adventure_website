@@ -14,7 +14,7 @@
 
     <div id="container">
         <!--Actually display game-->
-        <div id="playing" style="visibility: hidden;">
+        <div id="playing">
             <p id="game-message"></p>
             <br>
             <button type="button" id="option1" onClick="transferOption(0)"></button>
@@ -25,12 +25,13 @@
             <br>
 
             <script>
+                alert(document.cookie);
                 //ENDING EVENT
                 var end = new Event("End", "", ["", "", ""]);
                 //events for opening loop
                 var intro3 = new Event("Macarena", "You do the macarena.<br>Everyone cheers you on.", [end, "", ""]);
                 var intro2 = new Event("Bunny", "You bunny bunny over to " + pres + " and the game continues over and over.<br>", [end, "", ""]);
-                var intro1 = new Event("Nothing", "You do nothing and everyone looks at you including " + pc + " who runs up and smacks a poster to your forehead.", [end, end, end]);
+                var intro1 = new Event("Nothing", "You do nothing and everyone looks at you including " + " who runs up and smacks a poster to your forehead.", [end, end, end]);
                 var start = new Event("Intro", "Welcome to the improv, where things are about to get a little strange.<br>Let's start with a little warmup. Bunny Bunny", [intro1, intro2, intro3]);
                 var story = new Graph(4);
                 story.addVertex(start);
@@ -46,6 +47,7 @@
                     if (story.currentVertex.title == "End") {
                         window.location.href = "game-over.html";
                     } else {
+                        console.log(story.currentVertex.message);
                         document.getElementById("game-message").innerHTML = story.currentVertex.message;
                         for (i = 0; i < 3; i++) {
                             //only show button if that option is available
