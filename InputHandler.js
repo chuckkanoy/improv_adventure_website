@@ -18,7 +18,12 @@ function gatherInfo() {
     em = document.getElementById("em").value;
 
     document.cookie = "pres=" + pres + "; path=/";
-    document.cookie = "vp=" + vp + "; path=/"; //+ ":treasurer=" + treasurer + ":secretary=" + secretary + ":web=" + web + ":pc=" + pc + ":em=" + em;
+    document.cookie = "vp=" + vp + "; path=/";
+    document.cookie = "treasurer=" + treasurer + "; path=/";
+    document.cookie = "secretary=" + secretary + "; path=/";
+    document.cookie = "web=" + web + "; path=/";
+    document.cookie = "pc=" + pc + "; path=/";
+    document.cookie = "em=" + em + "; path=/";
     if (verify()) {
         window.location.href = "playing.html";
     }
