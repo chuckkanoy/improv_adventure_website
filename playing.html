@@ -8,8 +8,8 @@
 
 <body>
     <!--Javascript sources-->
-    <script src="../graph.js"></script>
-    <script src="../event.js"></script>
+    <script src="graph.js"></script>
+    <script src="event.js"></script>
     <script src="InputHandler.js"></script>
 
     <div id="container">
@@ -25,7 +25,15 @@
             <br>
 
             <script>
-                alert(document.cookie);
+                //parse variables from cookie for use
+                const COOKIE = document.cookie;
+                var cont = COOKIE.split(";");
+                for (i = 0; i < cont.length; i++) {
+                    var separated = cont[i].split("=");
+                    cont[i] = separated[1];
+                }
+                pres = cont[0];
+
                 //ENDING EVENT
                 var end = new Event("End", "", ["", "", ""]);
                 //events for opening loop

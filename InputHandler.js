@@ -1,11 +1,23 @@
 //declare variables
-var pres = "";
+var pres = "",
+    vp = "",
+    treasurer = "",
+    secretary = "",
+    web = "",
+    pc = "",
+    em = "";
 
 //take in information and display it
 function gatherInfo() {
     pres = document.getElementById("president").value;
-    document.cookie = 'pres=' + pres;
-    alert(document.cookie);
+    vp = document.getElementById("vp").value;
+    treasurer = document.getElementById("treasurer").value;
+    secretary = document.getElementById("secretary").value;
+    web = document.getElementById("webmaster").value;
+    pc = document.getElementById("pc").value;
+    em = document.getElementById("em").value;
+
+    document.cookie = "pres=" + pres + ";vp=" + vp + ";treasurer=" + treasurer + ";secretary=" + secretary + ";web=" + web + ";pc=" + pc + ";em=" + em;
     if (verify()) {
         window.location.href = "playing.html";
     }
@@ -13,7 +25,7 @@ function gatherInfo() {
 
 //verify the information given
 function verify() {
-    var verified = confirm("Is the following information correct?\nPresident: " + pres + "\nVice President: " + "\nTreasurer: " + "\nSecretary: " +
-        "\nWeb Master: " + "\nPublicity Coordinator: " + "\nEquipment Manager: ");
+    var verified = confirm("Is the following information correct?\nPresident: " + pres + "\nVice President: " + vp + "\nTreasurer: " + treasurer + "\nSecretary: " + secretary +
+        "\nWeb Master: " + web + "\nPublicity Coordinator: " + pc + "\nEquipment Manager: " + em);
     return verified;
 }
