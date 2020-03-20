@@ -28,11 +28,11 @@
                 //parse variables from cookie for use
                 const COOKIE = document.cookie;
                 var cont = COOKIE.split(";");
+                console.log(cont);
                 for (i = 0; i < cont.length; i++) {
                     var separated = cont[i].split("=");
                     cont[i] = separated[1];
                 }
-                console.log(cont);
                 pres = cont[0];
                 vp = cont[1];
                 treasurer = cont[2];
