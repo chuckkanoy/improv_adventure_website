@@ -17,8 +17,7 @@ function gatherInfo() {
     pc = document.getElementById("pc").value;
     em = document.getElementById("em").value;
 
-    document.cookie = "pres=" + pres;
-    document.cookie = "vp=" + vp; //+ ";treasurer=" + treasurer + ";secretary=" + secretary + ";web=" + web + ";pc=" + pc + ";em=" + em;
+    document.cookie = "pres=" + pres + ":vp=" + vp + ":treasurer=" + treasurer + ":secretary=" + secretary + ":web=" + web + ":pc=" + pc + ":em=" + em;
     if (verify()) {
         window.location.href = "playing.html";
     }
