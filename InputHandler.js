@@ -18,7 +18,7 @@ function gatherInfo() {
     em = document.getElementById("em").value;
 
     document.cookie = "pres=" + pres + "; path=/";
-    document.cookie = "vp=" + vp; //+ ":treasurer=" + treasurer + ":secretary=" + secretary + ":web=" + web + ":pc=" + pc + ":em=" + em;
+    document.cookie = "vp=" + vp + "; path=/"; //+ ":treasurer=" + treasurer + ":secretary=" + secretary + ":web=" + web + ":pc=" + pc + ":em=" + em;
     if (verify()) {
         window.location.href = "playing.html";
     }
