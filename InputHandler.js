@@ -4,7 +4,8 @@ var pres = "";
 //take in information and display it
 function gatherInfo() {
     pres = document.getElementById("president").value;
-    document.cookie = 'form/pres=' + pres;
+    document.cookie = 'pres=' + pres;
+    alert(document.cookie);
     if (verify()) {
         window.location.href = "playing.html";
     }
