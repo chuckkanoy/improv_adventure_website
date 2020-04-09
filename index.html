@@ -14,29 +14,31 @@
             <script src="graph.js"></script>
             <script src="event.js"></script>
             <script src="InputHandler.js"></script>
+            <table>
+                <td>
+                    Hello! Welcome to the TBD Adventure game by Chuck Kanoy.
+                    <br>
+                    <br> Enter the following information about the club board:
+                    <br>
+                    <form action="playing.html">
+                        <br> Enter name: <input type="text" id="player" placeholder="YOUR NAME"><br>
+                        <br> President: <input type="text" id="president" placeholder="PRESIDENT">
+                        <br> Vice President: <input type="text" id="vp" placeholder="VP">
+                        <br> Treasurer: <input type="text" id="treasurer" placeholder="TREASURER">
+                        <br> Secretary: <input type="text" id="secretary" placeholder="SECRETARY">
+                        <br> Webmaster: <input type="text" id="webmaster" placeholder="WEBMASTER">
+                        <br> Publicity Coordinator: <input type="text" id="pc" placeholder="PUBLICITY COORDINATOR">
+                        <br> Equipment Manager: <input type="text" id="em" placeholder="EQUIPMENT MANAGER">
+                    </form>
+                    <br>
+                    <br> Once info has been entered, please click the "BEGIN" button!<br>
+                </td>
+                <td>
+                    <!--Save info in javascript for later access-->
+                    <button onclick="gatherInfo()"> BEGIN </button>
+                </td>
+            </table>
 
-            Hello! Welcome to the TBD Adventure game by Chuck Kanoy.
-            <br>
-            <br> Enter the following information about the club board:
-            <br>
-            <form action="playing.html">
-                <br> Enter name: <input type="text" id="player" placeholder="YOUR NAME"><br>
-                <br> President: <input type="text" id="president" placeholder="PRESIDENT">
-                <br> Vice President: <input type="text" id="vp" placeholder="VP">
-                <br> Treasurer: <input type="text" id="treasurer" placeholder="TREASURER">
-                <br> Secretary: <input type="text" id="secretary" placeholder="SECRETARY">
-                <br> Webmaster: <input type="text" id="webmaster" placeholder="WEBMASTER">
-                <br> Publicity Coordinator: <input type="text" id="pc" placeholder="PUBLICITY COORDINATOR">
-                <br> Equipment Manager: <input type="text" id="em" placeholder="EQUIPMENT MANAGER">
-            </form>
-            <br>
-            <br> Once info has been entered, please click the "BEGIN" button!<br>
-
-            <!--Save info in javascript for later access-->
-            <button onclick="gatherInfo()"> BEGIN </button>
-
-            <!--Display demo-->
-            <p id="display"></p>
         </div>
     </div>
 </body>

@@ -13,20 +13,24 @@
     <script src="InputHandler.js"></script>
 
     <div id="container">
-        <!--Display game over and loop if necessary-->
-        <div id="game-over">
-            You done.
-            <br>
-            <br>
+        <table>
+            <td>
+                You done.
+                <br>
+                <br>
+            </td>
 
-            <a href="index.html"><button type="button" id="option3" onClick="restart()">RESTART</button></a>
+            <td>
+                <a href="index.html"><button type="button" id="option3" onClick="restart()">RESTART</button></a>
+                <script>
+                    function restart() {
+                        //reset the graph
+                        story.currentVertex = start;
+                    }
+                </script>
+            </td>
 
-            <script>
-                function restart() {
-                    //reset the graph
-                    story.currentVertex = start;
-                }
-            </script>
-        </div>
+        </table>
+    </div>
     </div>
 </body>

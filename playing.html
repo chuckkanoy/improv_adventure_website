@@ -16,11 +16,13 @@
     <div id="container">
         <!--Actually display game-->
         <div id="playing">
-            <p id="game-message"></p>
-            <br>
-            <p id="options"></p>
+            <table>
+                <td id="game-message"></td>
+                <td id="options"></td>
+            </table>
 
             <script>
+                //get graph for use
                 var story = generateStory();
 
                 //display the options of the current event
