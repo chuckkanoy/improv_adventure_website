@@ -4,6 +4,7 @@
     <title>TBD Adventure!</title>
     <link href="style.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -13,24 +14,22 @@
     <script src="InputHandler.js"></script>
 
     <div id="container">
-        <table>
-            <td>
-                You done.
-                <br>
-                <br>
-            </td>
+        <div id="game-message">
+            You done.
+            <br>
+            <br>
+        </div>
 
-            <td>
-                <a href="index.html"><button type="button" id="option3" onClick="restart()">RESTART</button></a>
-                <script>
-                    function restart() {
-                        //reset the graph
-                        story.currentVertex = start;
-                    }
-                </script>
-            </td>
-
-        </table>
+        <div id="options">
+            <a href="index.html"><button type="button" id="option3" onClick="restart()">RESTART</button></a>
+            <script>
+                function restart() {
+                    //reset the graph
+                    story.currentVertex = start;
+                }
+            </script>
+        </div>
+        <div id="credit">A game by Chuck Kanoy</div>
     </div>
     </div>
 </body>

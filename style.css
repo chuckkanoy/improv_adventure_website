@@ -1,25 +1,37 @@
 body {
     background-color: rgb(145, 0, 72);
-}
-
-table {
-    height: 700px;
-    table-layout: fixed;
     text-align: center;
-    background-color: #ffffff;
-    border-collapse: collapse;
+    font-family: 'Teko', sans-serif;
+    font-size: .5cm;
+}
+
+#game-message {
+    background-color: white;
+    min-height: 5in;
+    max-height: 5in;
+    overflow-y: auto;
     width: 100%;
+    float: top;
 }
 
-table,
-td {
-    border: 10px solid rgb(145, 0, 72);
+#options {
+    line-height: 50px;
+    margin-top: 1cm;
+    background-color: white;
+    min-height: 3in;
+    max-height: 3in;
+    overflow-y: auto;
+    width: 25%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    float: bottom;
 }
 
-td {
-    width: 50%;
-    height: 700px;
-    overflow-y: hidden;
+#credit {
+    position: fixed;
+    bottom: 0;
+    right: 10px;
 }
 
 button {
@@ -27,8 +39,11 @@ button {
     background-color: rgb(145, 0, 72);
     border: none;
     width: 25%;
+    font-family: 'Teko', sans-serif;
+    font-size: .5cm;
 }
 
 button:hover {
     background-color: rgb(63, 0, 145);
+    color: green;
 }

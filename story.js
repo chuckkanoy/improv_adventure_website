@@ -40,9 +40,9 @@ function generateStory() {
     var base = new Event("Clap Clap Clap", "<h1>BASE</h1><br>" + pres + " gives announcements about the club, the end of the world, and what have you.<br>Now we're ready to move on to a regular improv game. How about a good old game of montage?<br><br>What kind of suggestion will you get?", [s_object, s_location, s_activity]);
     //events for opening loop
     var intro3 = new Event("Macarena", "<h1>INTRO3</h1><br>You do the macarena.<br>Everyone cheers you on.", [base]);
-    var intro2 = new Event("Bunny", "<h1>INTRO2</h1><br>You bunny bunny over to " + treasurer + " and the game continues over and over.", [base]);
+    var intro2 = new Event("Bunny Bunny", "<h1>INTRO2</h1><br>You bunny bunny over to " + treasurer + " and the game continues over and over.", [base]);
     var intro1 = new Event("Nothing", "<h1>INTRO3</h1><br>You do nothing and everyone looks at you including " + vp + " who runs up and smacks a poster to your forehead.", [base]);
-    var start = new Event("Intro", "<h1>START</h1><br>Welcome to the improv, " + player + ", where things are about to get a little strange.<br>Let's start with a little warmup. Bunny Bunny<br>d<br>d<br>d<br>d<br>d<br>d<br>d<br>d<br>d<br>d<br>d<br>d<br>d<br>d<br>d<br>d<br>d<br>d<br>d<br>d<br>d<br>d<br>d<br>d<br>d<br>d<br>d<br>d<br>d<br>d<br>d<br>d<br>d<br>d<br>a<br>d<br>d<br>d<br>d<br>d<br>d<br>d<br>d<br>d<br>d<br>d<br>d<br>d<br>d<br>d<br>d<br>d<br>", [intro1, intro2, intro3]);
+    var start = new Event("Intro", "<h1>START</h1><br>Welcome to the improv, " + player + ", where things are about to get a little strange.<br>Let's start with a little warmup. Bunny Bunny<br>", [intro1, intro2, intro3]);
     //initialize game graph
     var story = new Graph(1);
     story.addVertex(start); //change event to start at different areas

@@ -4,6 +4,7 @@
     <title>TBD Adventure!</title>
     <link href="style.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -14,29 +15,55 @@
             <script src="graph.js"></script>
             <script src="event.js"></script>
             <script src="InputHandler.js"></script>
-            <table>
-                <td>
-                    Hello! Welcome to the TBD Adventure game by Chuck Kanoy.
-                    <br>
-                    <br> Enter the following information about the club board:
-                    <br>
+            <div id="game-message">
+                Hello! Welcome to the TBD Adventure.
+                <br>
+                <br> Enter the following information about the club board:
+                <br>
+                <table align="center">
                     <form action="playing.html">
-                        <br> Enter name: <input type="text" id="player" placeholder="YOUR NAME"><br>
-                        <br> President: <input type="text" id="president" placeholder="PRESIDENT">
-                        <br> Vice President: <input type="text" id="vp" placeholder="VP">
-                        <br> Treasurer: <input type="text" id="treasurer" placeholder="TREASURER">
-                        <br> Secretary: <input type="text" id="secretary" placeholder="SECRETARY">
-                        <br> Webmaster: <input type="text" id="webmaster" placeholder="WEBMASTER">
-                        <br> Publicity Coordinator: <input type="text" id="pc" placeholder="PUBLICITY COORDINATOR">
-                        <br> Equipment Manager: <input type="text" id="em" placeholder="EQUIPMENT MANAGER">
+                        <tr>
+                            <td text-align="left">Enter name: </td>
+                            <td><input type="text" id="player" placeholder="YOUR NAME"></td>
+                        </tr>
+                        <tr>
+                            <td>President:</td>
+                            <td><input type="text" id="president" placeholder="PRESIDENT"></td>
+                        </tr>
+                        <tr>
+                            <td>Vice President:</td>
+                            <td><input type="text" id="vp" placeholder="VP"></td>
+                        </tr>
+                        <tr>
+                            <td>Treasurer:</td>
+                            <td><input type="text" id="treasurer" placeholder="TREASURER"></td>
+                        </tr>
+                        <tr>
+                            <td>Secretary:</td>
+                            <td><input type="text" id="secretary" placeholder="SECRETARY"></td>
+                        </tr>
+                        <tr>
+                            <td>Webmaster:</td>
+                            <td><input type="text" id="webmaster" placeholder="WEBMASTER"></td>
+                        </tr>
+                        <tr>
+                            <td>Publicity Coordinator:</td>
+                            <td><input type="text" id="pc" placeholder="PUBLICITY COORDINATOR"></td>
+                        </tr>
+                        <tr>
+                            <td>Equipment Manager:</td>
+                            <td><input type="text" id="em" placeholder="EQUIPMENT MANAGER"></td>
+                        </tr>
                     </form>
-                    <br>
-                    <br> Once info has been entered, please click the "BEGIN" button!<br>
-                </td>
-                <td>
-                    <!--Save info in javascript for later access-->
-                    <button onclick="gatherInfo()"> BEGIN </button>
-                </td>
+                </table>
+                <br>
+                <br> Once info has been entered, please click the "BEGIN" button!<br>
+            </div>
+            <div id="options">
+                <!--Save info in javascript for later access-->
+                <button onclick="gatherInfo()"> BEGIN </button>
+            </div>
+            <div id="credit">A game by Chuck Kanoy</div>
             </table>
 
         </div>
