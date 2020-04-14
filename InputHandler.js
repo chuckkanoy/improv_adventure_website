@@ -9,6 +9,7 @@ var pres = "",
 
 //take in information and display it
 function gatherInfo() {
+    //read variables in from HTML document
     player = document.getElementById("player").value;
     pres = document.getElementById("president").value;
     vp = document.getElementById("vp").value;
@@ -18,6 +19,12 @@ function gatherInfo() {
     pc = document.getElementById("pc").value;
     em = document.getElementById("em").value;
 
+    //check for hack name
+    if (player === "HAX") {
+        console.log("You got them cheats, boi");
+    }
+
+    //assign variables to cookie for later use
     document.cookie = "player=" + player + "; path=/";
     document.cookie = "pres=" + pres + "; path=/";
     document.cookie = "vp=" + vp + "; path=/";

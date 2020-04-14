@@ -1,27 +1,31 @@
 body {
-    background-color: rgb(145, 0, 72);
+    background-color: rgb(5, 5, 27);
     text-align: center;
     font-family: 'Teko', sans-serif;
     font-size: .5cm;
 }
 
 #game-message {
+    border-radius: 45px;
+    border-style: solid;
+    border-width: thick;
+    border-color: rgb(97, 91, 94);
     background-color: white;
     min-height: 5in;
     max-height: 5in;
     overflow-y: auto;
-    width: 100%;
-    float: top;
+    width: 99.5%;
+    float: top left;
+    position: relative;
 }
 
 #options {
     line-height: 50px;
     margin-top: 1cm;
-    background-color: white;
     min-height: 3in;
     max-height: 3in;
     overflow-y: auto;
-    width: 25%;
+    width: 100%;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -31,19 +35,36 @@ body {
 #credit {
     position: fixed;
     bottom: 0;
+    color: grey;
     right: 10px;
+    font-size: 17px;
 }
 
 button {
     color: white;
-    background-color: rgb(145, 0, 72);
+    background-color: rgb(63, 0, 145);
     border: none;
-    width: 25%;
+    border-radius: 5px;
+    width: 10%;
     font-family: 'Teko', sans-serif;
     font-size: .5cm;
+    transform: translateX(-5px) translateY(-5px);
+    box-shadow: 5px 5px rgb(145, 0, 72);
 }
 
 button:hover {
-    background-color: rgb(63, 0, 145);
-    color: green;
+    color: rgb(251, 255, 43);
+    border-color: white;
+    border-style: solid;
+    border-width: thin;
+}
+
+button:active {
+    transform: translateX(0px) translateY(0px);
+    box-shadow: none;
+}
+
+a {
+    text-decoration: none;
+    color: purple;
 }
