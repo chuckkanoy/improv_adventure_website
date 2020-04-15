@@ -18,7 +18,9 @@
     <div id="container">
         <!--Actually display game-->
         <div id="playing">
-            <div id="game-message"></div>
+            <div id="game-container">
+                <div id="game-message"></div>
+            </div>
             <div id="options"></div>
 
             <script>
@@ -34,7 +36,7 @@
                         window.location.href = "game-over.html";
                     } else {
                         //display appropriate message for event
-                        document.getElementById("game-message").innerHTML = story.currentVertex.message;
+                        document.getElementById("game-message").innerHTML = "<h1>" + story.currentVertex.title + "</h1>" + story.currentVertex.message;
                         //display appropriate option in a button
                         for (i = 0; i < story.currentVertex.options.length; i++) {
                             document.getElementById("options").innerHTML += "<button onClick=\"transferOption(" + i + ")\">" + story.currentVertex.options[i].toString() + "</button><br>";

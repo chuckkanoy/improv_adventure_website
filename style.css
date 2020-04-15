@@ -5,18 +5,25 @@ body {
     font-size: .5cm;
 }
 
-#game-message {
+#game-container {
     border-radius: 45px;
     border-style: solid;
     border-width: thick;
     border-color: rgb(97, 91, 94);
     background-color: white;
-    min-height: 5in;
-    max-height: 5in;
-    overflow-y: auto;
     width: 99.5%;
     float: top left;
     position: relative;
+    text-align: center;
+}
+
+#game-message {
+    width: 50%;
+    min-height: 5in;
+    max-height: 5in;
+    overflow-y: auto;
+    transform: translateX(50%);
+    text-align: left;
 }
 
 #options {
@@ -67,4 +74,19 @@ button:active {
 a {
     text-decoration: none;
     color: purple;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td {
+    border-style: solid;
+}
+
+td:hover {
+    border-style: solid;
+    border-color: black;
+    background-color: purple;
+    color: white;
 }
