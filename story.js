@@ -66,7 +66,7 @@ function generateStory() {
         "You're not sure what <i>kind</i> of house you should make. In fact, none of you are sure what to build.<br><br>" + pc + ": We could literally build any type of house we want to." +
         treasurer + ": Yeah. Maybe a bird house. Or, sorry, a tree house?<br>" + vp + ": Or your mom's house. Ha ha ha.<br>" + treasurer + ": " + vp + ", when did you get here!?<br><br>" +
         "As the commotion begins to unfold, you find that it's up to you to make the decision...");
-    var h_build11 = new Event("Tree House", treasurer + ": Yet another good idea from the brilliant, " + em + "! You seem to know all the right decisions.<br><br> " +
+    var h_build11 = new Event("Tree House", treasurer + ": Yet another good idea from the brilliant, " + player + "! You seem to know all the right decisions.<br><br> " +
         "And with that, the three (well now I guess four) of you are ready to begin working on a wonderful treehouse of your very own. " + treasurer + " starts working on the base of the " +
         "treehouse while " + pc + " works on the walls. At the same time as all that is going on, " + vp + " is hoisting you up onto the upper trunk of the tree.<br><br>" + pc + ": Wait, " + treasurer +
         " we're already up on the tree. Did you remember to build the doors?<br>" + treasurer + ": Yeah, I drew one right here.<br>" + pc + ": You drew one. Well tell me this, bucko, how" +
