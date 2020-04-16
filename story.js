@@ -12,7 +12,7 @@ function parseCookie() {
 }
 //reassign variables if not defined
 function reassign(from, to) {
-    if (from === undefined || from === "" ) {
+    if (from === undefined) {
         return to;
     }
 }
