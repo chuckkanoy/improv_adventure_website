@@ -42,9 +42,7 @@ function generateStory() {
     pc = reassign(pc, "TEE PUBLIC");
     em = cont[7];
     em = reassign(em, "MAN \"i got that thang on me\" AGER");
-
-    //read in file? no.
-
+    
     //EVENTS
     //ENDING EVENTS
     var end = new Event("End", "", ["", "", ""]);
