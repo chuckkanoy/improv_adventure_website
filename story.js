@@ -1,14 +1,6 @@
 //translate cookie into usable data
 function parseCookie() {
-    //parse variables from cookie for use
-    const COOKIE = document.cookie;
-    var cont = COOKIE.split(";");
-    console.log(cont);
-    for (i = 0; i < cont.length; i++) {
-        var separated = cont[i].split("=");
-        cont[i] = separated[1];
-    }
-    return cont.values
+    
 }
 //reassign variables if not defined
 function reassign(from, to) {
@@ -22,10 +14,17 @@ function generateStory() {
     var player, pres, vp, treasurer, secretary, web, pc, em;
 
     //parse cookie
-    
+    //parse variables from cookie for use
+    const COOKIE = document.cookie;
+    var cont = COOKIE.split(";");
+    console.log(cont);
+    for (i = 0; i < cont.length; i++) {
+        var separated = cont[i].split("=");
+        cont[i] = separated[1];
+    }
     
     //initialize variables
-    var cont = parseCookie();
+    //var cont = parseCookie();
     player = cont[0];
     player = reassign(player, "YOU");
     pres = cont[1];
