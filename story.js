@@ -18,7 +18,11 @@ function reassign(from, to) {
 }
 //story generation through event objects
 function generateStory() {
-    cont = parseCookie();
+    //declare variables for local use
+    var player, pres, vp, treasurer, secretary, web, pc, em;
+
+    //initialize variables
+    var cont = parseCookie();
     player = cont[0];
     player = reassign(player, "YOU");
     pres = cont[1];
