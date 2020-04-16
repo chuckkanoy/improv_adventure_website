@@ -39,6 +39,10 @@ body {
     float: bottom;
 }
 
+#opening {
+    text-align: center;
+}
+
 #credit {
     position: fixed;
     bottom: 0;
@@ -78,6 +82,8 @@ a {
 
 table {
     border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 td {
@@ -89,4 +95,8 @@ td:hover {
     border-color: black;
     background-color: purple;
     color: white;
+}
+
+h1 {
+    text-align: center;
 }
