@@ -15,7 +15,7 @@ function checkCookieData(gname, cname, cvalue) {
 }
 //story generation through event objects
 function generateStory() {
-    
+
     //declare variables for local use
     var player, pres, vp, treasurer, secretary, web, pc, em;
 
@@ -27,30 +27,30 @@ function generateStory() {
     //break up each piece of the cookie
     for (i = 0; i < cont.length; i++) {
         var separated = cont[i].split("=");
-        switch (separated[0]) {
+        switch (separated[1]) {
             case "player":
-                player = separated[1];
+                player = separated[0];
                 break;
             case "pres":
-                pres = separated[1];
+                pres = separated[0];
                 break;
             case "vp":
-                vp = separated[1];
+                vp = separated[0];
                 break;
             case "treasurer":
-                treasurer = separated[1];
+                treasurer = separated[0];
                 break;
             case "secretary":
-                secretary = separated[1];
+                secretary = separated[0];
                 break;
             case "web":
-                web = separated[1];
+                web = separated[0];
                 break;
             case "pc":
-                pc = separated[1];
+                pc = separated[0];
                 break;
             case "em":
-                em = separated[1];
+                em = separated[0];
                 break;
 
         }
