@@ -27,6 +27,9 @@ function gatherInfo() {
         console.log("You got them cheats, boi");
     }
 
+    //clear cookies before assigning them
+    clearCookies();
+
     //assign variables to cookie for later use
     setCookie("player", player, TIME);
     setCookie("pres", pres, TIME);
@@ -56,4 +59,15 @@ function setCookie(cname, cvalue, exhrs) {
     d.setTime(d.getTime + (exhrs * 60 * 60 * 1000));
     var expires = "expires=" + d.toUTCString();
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/"
+}
+
+function clearCookies() {
+    setCookie("player", "", -1);
+    setCookie("pres", "", -1);
+    setCookie("vp", "", -1);
+    setCookie("treasurer", "", -1);
+    setCookie("secretary", "", -1);
+    setCookie("web", "", -1);
+    setCookie("pc", "", -1);
+    setCookie("em", "", -1);
 }
