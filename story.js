@@ -5,6 +5,14 @@ function reassign(from, to) {
     }
     return from;
 }
+
+//check values of the cookie
+function checkCookieData(gname, cname, cvalue) {
+    if (gname == cname) {
+        return cvalue;
+    }
+    return
+}
 //story generation through event objects
 function generateStory() {
     //declare variables for local use
@@ -15,10 +23,38 @@ function generateStory() {
     const COOKIE = document.cookie;
     var cont = COOKIE.split(";");
     console.log(cont);
+    //break up each piece of the cookie
     for (i = 0; i < cont.length; i++) {
         var separated = cont[i].split("=");
-        cont[i] = separated[1];
+        switch (separated[0]) {
+            case "player":
+                player = separated[1];
+                break;
+            case "pres":
+                pres = separated[1];
+                break;
+            case "vp":
+                vp = separated[1];
+                break;
+            case "treasurer":
+                treasurer = separated[1];
+                break;
+            case "secretary":
+                secretary = separated[1];
+                break;
+            case "web":
+                web = separated[1];
+                break;
+            case "pc":
+                pc = separated[1];
+                break;
+            case "em":
+                em = separated[1];
+                break;
+
+        }
     }
+
 
     //initialize variables
     player = cont[0];
