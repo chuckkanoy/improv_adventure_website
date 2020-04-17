@@ -27,30 +27,30 @@ function generateStory() {
     //break up each piece of the cookie
     for (i = 0; i < cont.length; i++) {
         var separated = cont[i].split("=");
-        switch (separated[1]) {
+        switch (separated[0]) {
             case "player":
-                player = separated[0];
+                player = separated[1];
                 break;
             case "pres":
-                pres = separated[0];
+                pres = separated[1];
                 break;
             case "vp":
-                vp = separated[0];
+                vp = separated[1];
                 break;
             case "treasurer":
-                treasurer = separated[0];
+                treasurer = separated[1];
                 break;
             case "secretary":
-                secretary = separated[0];
+                secretary = separated[1];
                 break;
             case "web":
-                web = separated[0];
+                web = separated[1];
                 break;
             case "pc":
-                pc = separated[0];
+                pc = separated[1];
                 break;
             case "em":
-                em = separated[0];
+                em = separated[1];
                 break;
 
         }
@@ -59,21 +59,21 @@ function generateStory() {
 
     //initialize variables
     // player = cont[0];
-    // player = reassign(player, "YOU");
+    player = reassign(player, "YOU");
     // pres = cont[1];
-    // pres = reassign(pres, "DENT, PRESI DENT");
+    pres = reassign(pres, "DENT, PRESI DENT");
     // vp = cont[2];
-    // vp = reassign(vp, "CLAMPY HAMS");
+    vp = reassign(vp, "CLAMPY HAMS");
     // treasurer = cont[3];
-    // treasurer = reassign(treasurer, "MONEY BAGZ");
+    treasurer = reassign(treasurer, "MONEY BAGZ");
     // secretary = cont[4];
-    // secretary = reassign(secretary, "SECRET TERRY");
+    secretary = reassign(secretary, "SECRET TERRY");
     // web = cont[5];
-    // web = reassign(web, "WEB MASTER MIXER");
+    web = reassign(web, "WEB MASTER MIXER");
     // pc = cont[6];
-    // pc = reassign(pc, "TEE PUBLIC");
+    pc = reassign(pc, "TEE PUBLIC");
     // em = cont[7];
-    // em = reassign(em, "MAN \"i got that thang on me\" AGER");
+    em = reassign(em, "MAN \"i got that thang on me\" AGER");
 
     //EVENTS
     //ENDING EVENTS
