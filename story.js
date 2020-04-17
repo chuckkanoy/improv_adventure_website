@@ -8,7 +8,7 @@ function reassign(from, to) {
 //story generation through event objects
 function generateStory() {
     //reload page for cookie use
-    location.replace("story.js");
+    location.replace("playing.html");
 
     //declare variables for local use
     var player, pres, vp, treasurer, secretary, web, pc, em;
