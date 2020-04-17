@@ -30,28 +30,28 @@ function generateStory() {
         switch (separated[0]) {
             case "player":
                 player = separated[1];
-                break;
+                continue;
             case "pres":
                 pres = separated[1];
-                break;
+                continue;
             case "vp":
                 vp = separated[1];
-                break;
+                continue;
             case "treasurer":
                 treasurer = separated[1];
-                break;
+                continue;
             case "secretary":
                 secretary = separated[1];
-                break;
+                continue;
             case "web":
                 web = separated[1];
-                break;
+                continue;
             case "pc":
                 pc = separated[1];
-                break;
+                continue;
             case "em":
                 em = separated[1];
-                break;
+                continue;
 
         }
     }
