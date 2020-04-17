@@ -15,6 +15,7 @@ function checkCookieData(gname, cname, cvalue) {
 }
 //story generation through event objects
 function generateStory() {
+    
     //declare variables for local use
     var player, pres, vp, treasurer, secretary, web, pc, em;
 
