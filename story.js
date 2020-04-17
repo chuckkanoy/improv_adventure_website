@@ -22,7 +22,7 @@ function generateStory() {
     //parse cookie
     //parse variables from cookie for use
     const COOKIE = document.cookie;
-    var cont = COOKIE.split(";");
+    var cont = COOKIE.replace(/ /g, "").split(";");
     console.log(cont);
     //break up each piece of the cookie
     for (i = 0; i < cont.length; i++) {
