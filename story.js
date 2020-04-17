@@ -57,21 +57,13 @@ function generateStory() {
     }
 
     //initialize variables
-    // player = cont[0];
     player = reassign(player, "YOU");
-    // pres = cont[1];
     pres = reassign(pres, "DENT, PRESI DENT");
-    // vp = cont[2];
     vp = reassign(vp, "CLAMPY HAMS");
-    // treasurer = cont[3];
     treasurer = reassign(treasurer, "MONEY BAGZ");
-    // secretary = cont[4];
     secretary = reassign(secretary, "SECRET TERRY");
-    // web = cont[5];
     web = reassign(web, "WEB MASTER MIXER");
-    // pc = cont[6];
     pc = reassign(pc, "TEE PUBLIC");
-    // em = cont[7];
     em = reassign(em, "MAN \"i got that thang on me\" AGER");
 
     //EVENTS
