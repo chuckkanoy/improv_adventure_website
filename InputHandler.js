@@ -36,7 +36,7 @@ function gatherInfo() {
     setCookie("web", web, TIME);
     setCookie("pc", pc, TIME);
     setCookie("em", em, TIME);
-    
+
     //verify the input before sending to a new page
     if (verify()) {
         window.location.href = "playing.html";
@@ -51,9 +51,9 @@ function verify() {
 }
 
 //function for creating a cookie
-function setCookie(cname, cvalue, exhrs){
+function setCookie(cname, cvalue, exhrs) {
     var d = new Date();
-    d.setTime(d.getTime + (exhrs*60*60*1000));
+    d.setTime(d.getTime + (exhrs * 60 * 60 * 1000));
     var expires = "expires=" + d.toUTCString();
-    document.cookie = cname  + "=" + cvalue + ";" + expires + ";path=/"
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/"
 }

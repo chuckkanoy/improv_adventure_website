@@ -1,7 +1,3 @@
-//translate cookie into usable data
-function parseCookie() {
-    
-}
 //reassign variables if not defined
 function reassign(from, to) {
     if (from == undefined || from == "") {
@@ -11,7 +7,9 @@ function reassign(from, to) {
 }
 //story generation through event objects
 function generateStory() {
-    //declare variables for local use
+    //reload page for cookie use
+    location.reload()
+        //declare variables for local use
     var player, pres, vp, treasurer, secretary, web, pc, em;
 
     //parse cookie
@@ -23,9 +21,8 @@ function generateStory() {
         var separated = cont[i].split("=");
         cont[i] = separated[1];
     }
-    
+
     //initialize variables
-    //var cont = parseCookie();
     player = cont[0];
     player = reassign(player, "YOU");
     pres = cont[1];
@@ -42,7 +39,7 @@ function generateStory() {
     pc = reassign(pc, "TEE PUBLIC");
     em = cont[7];
     em = reassign(em, "MAN \"i got that thang on me\" AGER");
-    
+
     //EVENTS
     //ENDING EVENTS
     var end = new Event("End", "", ["", "", ""]);
