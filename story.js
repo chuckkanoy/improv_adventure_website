@@ -56,7 +56,6 @@ function generateStory() {
         }
     }
 
-
     //initialize variables
     // player = cont[0];
     player = reassign(player, "YOU");
