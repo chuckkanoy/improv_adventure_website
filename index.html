@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<!-- 
+    Sources:
+        Modal Boxes: w3 schools ; https://www.w3schools.com/howto/howto_css_modals.asp
+    -->
 
 <head>
     <title>TBD Adventure!</title>
@@ -16,6 +20,7 @@
             <script src="graph.js"></script>
             <script src="event.js"></script>
             <script src="InputHandler.js"></script>
+            <script src="modalBox.js"></script>
             <div id="game-container">
                 <div id="opening">
                     Hello! Welcome to the TBD Adventure.
@@ -67,8 +72,19 @@
                 <button onclick="gatherInfo()"> BEGIN </button>
             </div>
             <div id="credit">A game by <a href="https://chuckkanoy.github.io/WebsitePortfolio/">Chuck Kanoy</a></div>
-            </table>
 
         </div>
+    </div>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <p id="modal-message"></p>
+            <br>
+            <button id="yes">Yes</button>
+            <button id="no">No</button>
+        </div>
+
     </div>
 </body>

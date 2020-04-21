@@ -41,16 +41,14 @@ function gatherInfo() {
     setCookie("em", em, TIME);
 
     //verify the input before sending to a new page
-    if (verify()) {
-        window.location.href = "playing.html";
-    }
+    verify();
+
 }
 
 //verify the information given
 function verify() {
-    var verified = confirm("Is the following information correct?\nYour name: " + player + "\nPresident: " + pres + "\nVice President: " + vp + "\nTreasurer: " + treasurer + "\nSecretary: " + secretary +
-        "\nWeb Master: " + web + "\nPublicity Coordinator: " + pc + "\nEquipment Manager: " + em);
-    return verified;
+    displayModal("Is the following information correct?<br>Your name: " + player + "<br>President: " + pres + "<br>Vice President: " + vp + "<br>Treasurer: " + treasurer + "<br>Secretary: " + secretary +
+        "<br>Web Master: " + web + "<br>Publicity Coordinator: " + pc + "<br>Equipment Manager: " + em);
 }
 
 //function for creating a cookie
