@@ -11,8 +11,10 @@ class Event {
     }
 
     //adds an option if necessary
-    addOption(option) {
-        this.options.push(option);
+    addOptions(optionsUsed) {
+        for (i = 0; i < optionsUsed.length; i++) {
+            this.options.push(optionsUsed[i]);
+        }
     }
 
     //prints different elements of event

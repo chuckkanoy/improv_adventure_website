@@ -114,6 +114,28 @@ function generateStory() {
     h_build31 = new Event("No", "The two of you stand there as " + pc + " attempts to bring a world into existence out of thin air on their own. They slowly lose steam. You steadily feel bad for not stepping in to " +
         "help.<br><br>Suddenly, they've done it! There is a world that was pulled from nothing right there in front of you and " + treasurer + "'s eyes. You guys can't believe it.<br><br>" + treasurer + ": Can we visit your " +
         "world, " + pc + "?<br><br>" + pc + " puts on their sunglasses and turns to face the two of you.<br><br>" + pc + ": You wish.", [bad_ending]);
+    h_build32 = new Event("Yes", treasurer + " and yourself run over and start hitting invisible things. Time after time your hammers fall and rise.<br><br>" + treasurer + ": Imma make a skyscraper.<br>" +
+        pc + ": Nice. I'm gonna make a freaking volcano. We can do whatever we want here!<br><br>You start working on something that you're not even sure quite what it is at first.<br><br>" + pc + ": What are you making over " +
+        "there, " + player + "?<br>" + treasurer + " walking up: Is that what I think it is?<br>" + pc + ": That's insane, I thought we were being creative by making these outlandish ideas and here " + player + " is to show us " +
+        "how it's done.");
+    h_build321 = new Event("Continue", "From your capable hammer, you've creatively thought of a way to put together another universe within our own by smacking dust particles together.<br>It's brilliant.<br>" +
+        "<img src = \"https://cdn.mos.cms.futurecdn.net/qWRNTdErRRidiwWoT5dvj.jpg\" style=\"width:300px; height:300px;\">", [good_ending]);
+    h3 = new Event("Juggle", "Woahhhhh, you can juggle?");
+    h31 = new Event("Yes", "That's so sick.<br><br>This juggling penguin is happy for you and your life of juggling.<br><img src = \"https://media.giphy.com/media/3eE7PuC4qxxVm/giphy.gif\" style=\"width:300px; height:300px;\"><br>Would you like to juggle your hammers with this penguin on a tour?")
+    h32 = new Event("No", "You find yourself on a stage. You have 2 hammers in your right hand and 1 in your left. Your hands clam up as you've realized the thing you signed up to do is something you " +
+        "never learned. The pressure weighs down on you, causing you to sweat. You look up into the stage lights, take an enormous gulp, and toss one hammer in the air.")
+    h311 = new Event("Absolutely", "You and your penguin party like rock stars for the entire tour, juggling simply for the joy it brings the two of you. You're certain that if it were possible for a penguin to smile, your partner would be " +
+        "gleaming. The two of you radiate entertainment.<br><br><b>You are stars.</b>", [good_ending]);
+    h312 = new Event("Sorry, but no", "You half expect the penguin to cry at your rejection. Your heart races as he stares into your eyes, not showing a lick of emotion.<br><br>Contrary to what you thought, " +
+        "the penguin shrugs their little penguin shoulders and waddles off to a limo you hadn't noticed until now.<br><br>Opportunity: Lost.", [bad_ending]);
+    h321 = new Event("Continue", "The first hammer flips through the air, and you throw the third one because that's what someone told you would help with juggling. They said, \"Just get em all outta your hands. That's juggling.\"" +
+        " you didn't really believe them at the time, so why would you try it in front a crowd of people. That first hammer is falling down towards you now followed by the second and third. Why did you throw them so high?");
+    h3211 = new Event("Continue", "You awake in a cold sweat, hearing thudding at the door.<br><br>" + treasurer + ": You want pancakes?<br>" + player + ": Huh?<br>" + treasurer + ": You fell asleep at the party. We're all having post party pancakes!" +
+        "<br>" + player + ": Sick! I'll be out in a second.<br><br>You've got pancakes coming!", [good_ending]);
+    h4 = new Event("Hammerhead Shark", pc + ", " + treasurer + ", and yourself are on a beach at some vacation paradise. You decide it's a good idea to go swimming and run out into the waves that are crashing on the picturesque shoreline.<br><br>" +
+        treasurer + ": Look out, " + player + ", I see a shark fin out there!<br>" + pc + ": Holy cow! I see it too.<br><br>You have to think on your feet quick. Do you keep going or turn around? Be careful.");
+    h41 = ("Keep going", "After thinking on it for a moment, you go into the shark infested waters. For some reason, you feel completely unafraid. You get closer and closer to the sharks.<br><br>Kyle the Shark: Bro, you just came out here. We're sharks." +
+        "<br>CJ the Shark: That's pretty insane. I like your style. What's your name?<br>" + player + ": " + player + "...<br>Kyle: Well dude you're one of us now.")
 
     //events for object suggestions
     var hammer = new Event("Hammer", "As a jack of all trades, you pick this ALL POWERFUL tool.<br><br><br><sub><small>(please don't use it as a weapon)</small></sub>", [h_weapon, h_build]);
@@ -128,14 +150,19 @@ function generateStory() {
     var intro3 = new Event("Macarena", "You do the macarena.<br>Everyone cheers you on.", [base]);
     var intro2 = new Event("Bunny Bunny", "You bunny bunny over to " + treasurer + " and the game continues over and over.", [base]);
     var intro1 = new Event("Nothing", "You do nothing and everyone looks at you including " + vp + " who runs up and smacks a poster to your forehead.", [base]);
-    var start = new Event("Beginning", "Welcome to the improv, " + player + ", where things are about to get a little strange.<br>Let's start with a little warmup. Bunny Bunny...<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>", [intro1, intro2, intro3]);
+    var start = new Event("Beginning", "Welcome to the improv, " + player + ", where things are about to get a little strange.<br>Let's start with a little warmup. Bunny Bunny...", [intro1, intro2, intro3]);
     //additional options for events
-    h_build.addOption(h_build1);
-    h_build1.addOption(h_build11);
-    h_build3.addOption(h_build31);
-    and_scene.addOption(base);
+    h_build.addOptions([h_build1]);
+    h_build1.addOptions([h_build11]);
+    h_build3.addOptions([h_build31, h_build32]);
+    h_build32.addOptions([h_build321])
+    h3.addOptions([h31, h32]);
+    h31.addOptions([h311, h312]);
+    h32.addOptions([h321]);
+    h321.addOptions([h3211]);
+    and_scene.addOptions([base]);
     //initialize game graph
     var story = new Graph(1);
-    story.addVertex(h_build3); //change event to start at different areas
+    story.addVertex(h3); //change event to start at different areas
     return story;
 }
