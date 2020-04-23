@@ -75,7 +75,7 @@
 
         </div>
     </div>
-    <!-- The Modal -->
+    <!-- The Modal for displaying confirmation-->
     <div id="myModal" class="modal">
 
         <!-- Modal content -->
@@ -87,4 +87,19 @@
         </div>
 
     </div>
+    <!-- Warning box for cookies -->
+    <div id="warning">
+        <p id="cookies-message">This website uses cookies to improve user experience!</p>
+        <button id="close">&times;</button>
+    </div>
+    <script>
+        // get elements
+        var btn = document.getElementById("close");
+        var box = document.getElementById("warning");
+
+        // hide warning on exit click
+        btn.onclick = function() {
+            box.style.visibility = "hidden";
+        }
+    </script>
 </body>

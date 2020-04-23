@@ -134,9 +134,25 @@ function generateStory() {
         "<br>" + player + ": Sick! I'll be out in a second.<br><br>You've got pancakes coming!", [good_ending]);
     h4 = new Event("Hammerhead Shark", pc + ", " + treasurer + ", and yourself are on a beach at some vacation paradise. You decide it's a good idea to go swimming and run out into the waves that are crashing on the picturesque shoreline.<br><br>" +
         treasurer + ": Look out, " + player + ", I see a shark fin out there!<br>" + pc + ": Holy cow! I see it too.<br><br>You have to think on your feet quick. Do you keep going or turn around? Be careful.");
-    h41 = ("Keep going", "After thinking on it for a moment, you go into the shark infested waters. For some reason, you feel completely unafraid. You get closer and closer to the sharks.<br><br>Kyle the Shark: Bro, you just came out here. We're sharks." +
-        "<br>CJ the Shark: That's pretty insane. I like your style. What's your name?<br>" + player + ": " + player + "...<br>Kyle: Well dude you're one of us now.")
-
+    h41 = new Event("Keep going", "After thinking on it for a moment, you go into the shark infested waters. For some reason, you feel completely unafraid. You get closer and closer to the sharks.<br><br>Kyle the Shark: Bro, you just came out here. We're sharks." +
+        "<br>CJ the Shark: That's pretty insane. I like your style. What's your name?<br>" + player + ": " + player + "...<br>Kyle: Well dude you're one of us now.<br>" + player + ": Wait really? What about my friends?<br>Kyle: That depends... Do they like " +
+        "fish?");
+    h411 = new Event("Yes", "Kyle: Well then of course they can join us!<br><br>You wave over " + treasurer + " and " + pc + ", and they look at each other and consider it. They shrug and rush out into the water.<br><br>" +
+        "Kyle: You guys are gonna make great sharks!<br>CJ: For real.<br>" + treasurer + ": You really think so? This is our first time being sharks.<br><br>CJ and Kyle both nod their sharkish nod. With that, you guys go out into the depths of the ocean blue, feeling both " +
+        "free and fluent. It comes naturally to you to swim through the sea weed.<br><br>This lasts for about five minutes until you realize you're out of breath. CJ and Kyle have the gills for this lifestyle while y'all have plain old lungs. You, " + treasurer + ", and " + pc + " swim up to the surface." +
+        "<br><br>" + pc + ": Looks like being a shark isn't in the cards.<br>" + player + ": You know what is?<br>" + pc + ": What?<br>" + player + ": <i>Friendship</i>", [and_scene]);
+    h412 = new Event("No", "You shake your head. Kyle shakes his head with a frown.<br><br>Kyle: Well unfortunately they can't join us, but you're more than welcome.");
+    h4121 = new Event("Join Sharks", player + ": I think I'll join you guys.<br>Kyle: That's rad. Come on, CJ and I were gonna go swimming through the vast blue waters.<br>" + player + ": That sounds awesome.<br><br>You swim through the ocean, and your abdomen is brushed " +
+        "by seaweed as you move. The sharks are moving to quickly ahead of you. It seems like they're built for this. You, however, are not and your lungs prove this as well. You swim up to the surface and realize you've gotten a long way from the shore. You miss your friends " +
+        "It'll be dark soon.", [bad_ending]);
+    h4122 = new Event("Return to Friends", "You say your goodbyes to your shark bros, and you will truly miss them. When you make it back to your friends, " + pc + " has a tremendous idea.<br>" + pc + ": We should make a sand castle.<br>" + player + ": That sounds totally sick.<br>" +
+        treasurer + ": sounds like it's decided then. Let's make the best sand castle we can.<br><br>The three of you build a sand castle complete with a drawbridge, moat, and turrets. It takes a long time, but eventually it's finally complete. Exactly the image you " +
+        "pictured in your head.<br><br>You look off into the distance and see the orange glow of the sunset turn to purple. Purple to white speckled black of distant galaxies yet to be explored. Another day, another adventure.", [and_scene]);
+    h42 = new Event("Stand Still", "The shark fins speed in your direction. Hesistance can sometimes be a tortorous trait. Right now, this has proven true.<h1>SHARK ATTACK</h1>", [bad_ending]);
+    h43 = new Event("Swim Back", "The sharks chase you out of the water, and you run back to " + treasurer + " and " + pc + ".<br><br>" + pc + ": Holy crap, what happened to your leg?<br><br>In all the commotion, so much adrenaline pumped through your body that you didn't feel the bite on your leg.<h3>NEW CHOICE!</h3>" +
+        "You didn't feel the tattoo that the shark drew on your leg. It was the rough outline of a shark fin in the water. You couldn't really blame the shark for making it look so rough because they'd never seen their fins from outside the water, so how could they know?<br><br>This bite causes you severe mental anguish. Do you sue?");
+    h431 = new Event("Sue", "You all wrap it up at the beach, as you have a big day tomorrow with taking the sharks to court.", [and_scene]);
+    h432 = new Event("No Law", "You kind of like the way your little shark tattoo looks, and it's a good reminder of this day at the beach. You definitely want to remember it for the rest of your life. No laser removal necessary...", [good_ending]);
     //events for object suggestions
     var hammer = new Event("Hammer", "As a jack of all trades, you pick this ALL POWERFUL tool.<br><br><br><sub><small>(please don't use it as a weapon)</small></sub>", [h_weapon, h_build]);
     var fish = new Event("Fish", "Black! White! Fish!<br>You've taken the LITERAL suggestion of fish. This is gonna be good.");
@@ -152,6 +168,7 @@ function generateStory() {
     var intro1 = new Event("Nothing", "You do nothing and everyone looks at you including " + vp + " who runs up and smacks a poster to your forehead.", [base]);
     var start = new Event("Beginning", "Welcome to the improv, " + player + ", where things are about to get a little strange.<br>Let's start with a little warmup. Bunny Bunny...", [intro1, intro2, intro3]);
     //additional options for events
+    hammer.addOptions([h3, h4]);
     h_build.addOptions([h_build1]);
     h_build1.addOptions([h_build11]);
     h_build3.addOptions([h_build31, h_build32]);
@@ -160,9 +177,13 @@ function generateStory() {
     h31.addOptions([h311, h312]);
     h32.addOptions([h321]);
     h321.addOptions([h3211]);
+    h4.addOptions([h41, h42, h43]);
+    h41.addOptions([h411, h412]);
+    h412.addOptions([h4121, h4122]);
+    h43.addOptions([h431, h432])
     and_scene.addOptions([base]);
     //initialize game graph
     var story = new Graph(1);
-    story.addVertex(h3); //change event to start at different areas
+    story.addVertex(hammer); //change event to start at different areas
     return story;
 }

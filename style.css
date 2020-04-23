@@ -148,6 +148,36 @@ h1 {
     border-style: solid;
     border-width: thick;
     border-color: rgb(97, 91, 94);
-    width: 80%;
+    width: 25%;
     /* Could be more or less, depending on screen size */
+}
+
+
+/* Cookie warning block */
+
+#warning {
+    background-color: rgb(145, 0, 72);
+    display: inline-block;
+    width: 100%;
+}
+
+#cookies-message {
+    color: white;
+    float: left;
+    margin-left: 10px;
+}
+
+#close {
+    width: 25px;
+    position: right;
+    box-shadow: none;
+    float: right;
+    margin-right: 10px;
+    margin-top: 25px;
+    border: none;
+}
+
+#close:hover {
+    background-color: black;
+    color: white;
 }
