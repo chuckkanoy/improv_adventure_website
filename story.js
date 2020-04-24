@@ -153,9 +153,19 @@ function generateStory() {
         "You didn't feel the tattoo that the shark drew on your leg. It was the rough outline of a shark fin in the water. You couldn't really blame the shark for making it look so rough because they'd never seen their fins from outside the water, so how could they know?<br><br>This bite causes you severe mental anguish. Do you sue?");
     h431 = new Event("Sue", "You all wrap it up at the beach, as you have a big day tomorrow with taking the sharks to court.", [and_scene]);
     h432 = new Event("No Law", "You kind of like the way your little shark tattoo looks, and it's a good reminder of this day at the beach. You definitely want to remember it for the rest of your life. No laser removal necessary...", [good_ending]);
+    //fish events
+    f1 = new Event("Sushi", "You begin chopping away at seaweed to make your daily sushi. Of course, you need fish to be able to make sushi, so you must source that as soon as possible.<br><br>" + pres + ": I think I can help you with that.<br><br>" + pres + " pulls out a fishing rod " +
+        "and drops it in the deep pit of fish in the middle of the room. This pit is on reserve so that you," + pres + ", " + vp + ", and " + secretary + " can create sushi whenever you'd like. Helping prepare is " + vp + " who is rinsing the rice and bringing water to a boil.<br><br>You all seem to know what " +
+        "you're doing. How long have you been doing this for?");
+    f11 = new Event("1 Year", "From the middle of the room, " + pres + " pulls after they've got a tug on the line. Out from the hole comes a nice looking salmon.<br><br>" + vp + ": Holy cow, or should I say fish?<br>" + secretary + ": Good one! I say, man.<t>*rimshot*");
+    f12 = new Event("10 Years", "From the middle of the room, you hear " + pres + " heaving with all their might. You, " + vp + ", and " + secretary + " all walk to the center of the room to see what it is they've caught. It glints from inside the water hole almost as if to greet you. Out from the hole bursts and shiny " +
+        "silvery tuna. Its eye looks at you as it wiggles around.<br><br>" + secretary + ": That's a ton o' fish.<br>" + vp + ": Change your tune...a.<br>" + pres + ": You guys are really funny and all, but can you help me move this behemoth?");
+    f13 = new Event("Eternity", "You take a moment to look around your almost mythical sushi shack. You all have worked for an eternity to get this setup exactly right in hopes that the <b>big one</b> will come. Suddenly from the center of the room, " + pres + " starts to tug at the fishing pole. The room begins to shake all about. " +
+        "Things fall off of walls. From the hole comes a 7 1/2 foot mythical red snapper.<br><br>You all have finally done it.<br>" + vp + " sheds a tear.<br>You gleem with pride.<br>" + secretary + " and " + pres + " play patty cake in excitement.");
+    f1_1 = new Event("Continue", "On and on your sushi shack goes.<br>When it ends, everyone knows.<br>It's when you click on that button and decide it does.<br>Go ahead and relax hear just because.<br><br>Yeesh, corny.", [and_scene]);
     //events for object suggestions
     var hammer = new Event("Hammer", "As a jack of all trades, you pick this ALL POWERFUL tool.<br><br><br><sub><small>(please don't use it as a weapon)</small></sub>", [h_weapon, h_build]);
-    var fish = new Event("Fish", "Black! White! Fish!<br>You've taken the LITERAL suggestion of fish. This is gonna be good.");
+    var fish = new Event("Fish", "Black! White! Fish!<br>You've taken the LITERAL suggestion of fish. This is gonna be good.<br><br>What business do you have with <i>fish</i>?");
     var egg = new Event("Egg", "You hear the notorious improv suggestion for egg, and you snag the opportunity for some \"clucking\" awesome improv.");
     //events for general suggestion types
     var s_activity = new Event("Activity", player + ": What's an activity you'd do on the weekend?");
@@ -180,10 +190,14 @@ function generateStory() {
     h4.addOptions([h41, h42, h43]);
     h41.addOptions([h411, h412]);
     h412.addOptions([h4121, h4122]);
-    h43.addOptions([h431, h432])
+    h43.addOptions([h431, h432]);
+    f1.addOptions([f11, f12, f13]);
+    f11.addOptions([f1_1]);
+    f12.addOptions([f1_1]);
+    f13.addOptions([f1_1]);
     and_scene.addOptions([base]);
     //initialize game graph
     var story = new Graph(1);
-    story.addVertex(hammer); //change event to start at different areas
+    story.addVertex(f1); //change event to start at different areas
     return story;
 }
