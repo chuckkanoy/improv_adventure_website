@@ -12,7 +12,7 @@ class Event {
 
     //adds an option if necessary
     addOptions(optionsUsed) {
-        for (i = 0; i < optionsUsed.length; i++) {
+        for (var i = 0; i < optionsUsed.length; i++) {
             this.options.push(optionsUsed[i]);
         }
     }

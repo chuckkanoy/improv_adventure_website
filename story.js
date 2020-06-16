@@ -1,3 +1,24 @@
+//declare variables for local use
+var player, pres, vp, treasurer, secretary, web, pc, em;
+var player = localStorage.getItem("player");
+var pres = localStorage.getItem("pres");
+var vp = localStorage.getItem("vp");
+var treasurer = localStorage.getItem("treasurer");
+var secretary = localStorage.getItem("secretary");
+var web = localStorage.getItem("web");
+var pc = localStorage.getItem("pc");
+var em = localStorage.getItem("em");
+
+//reinitialize variables if necessary
+player = reassign(player, "YOU");
+pres = reassign(pres, "DENT, PRESI DENT");
+vp = reassign(vp, "CLAMPY HAMS");
+treasurer = reassign(treasurer, "MONEY BAGZ");
+secretary = reassign(secretary, "SECRET TERRY");
+web = reassign(web, "WEB MASTER MIXER");
+pc = reassign(pc, "TEE PUBLIC");
+em = reassign(em, "MAN \"i got that thang on me\" AGER");
+
 //reassign variables if not defined
 function reassign(from, to) {
     if (from == undefined || from == "") {
@@ -6,66 +27,21 @@ function reassign(from, to) {
     return from;
 }
 
-//check values of the cookie
-function checkCookieData(gname, cname, cvalue) {
-    if (gname == cname) {
-        return cvalue;
-    }
-    return
+//parse string to have appropriate variables or HTML tags
+function parseChunk(chunk) {
+    chunk.replace("PLAYER", player);
+    chunk.replace("PRES", pres);
+    chunk.replace("VP", vp);
+    chunk.replace("TREASURER", treasurer);
+    chunk.replace("SECRETARY", secretary);
+    chunk.replace("PC", pc);
+    chunk.replace("WEB", web);
+    chunk.replace("EM", em);
+    chunk.replace("\n", "<br>");
 }
+
 //story generation through event objects
 function generateStory() {
-
-    //declare variables for local use
-    var player, pres, vp, treasurer, secretary, web, pc, em;
-
-    //parse cookie
-    //parse variables from cookie for use
-    const COOKIE = document.cookie;
-    var cont = COOKIE.replace(/ /g, "").split(";");
-    console.log(cont);
-    //break up each piece of the cookie
-    for (i = 0; i < cont.length; i++) {
-        var separated = cont[i].split("=");
-        switch (separated[0]) {
-            case "player":
-                player = separated[1];
-                continue;
-            case "pres":
-                pres = separated[1];
-                continue;
-            case "vp":
-                vp = separated[1];
-                continue;
-            case "treasurer":
-                treasurer = separated[1];
-                continue;
-            case "secretary":
-                secretary = separated[1];
-                continue;
-            case "web":
-                web = separated[1];
-                continue;
-            case "pc":
-                pc = separated[1];
-                continue;
-            case "em":
-                em = separated[1];
-                continue;
-
-        }
-    }
-
-    //initialize variables
-    player = reassign(player, "YOU");
-    pres = reassign(pres, "DENT, PRESI DENT");
-    vp = reassign(vp, "CLAMPY HAMS");
-    treasurer = reassign(treasurer, "MONEY BAGZ");
-    secretary = reassign(secretary, "SECRET TERRY");
-    web = reassign(web, "WEB MASTER MIXER");
-    pc = reassign(pc, "TEE PUBLIC");
-    em = reassign(em, "MAN \"i got that thang on me\" AGER");
-
     //EVENTS
     //ENDING EVENTS
     var end = new Event("End", "", ["", "", ""]);
@@ -198,6 +174,6 @@ function generateStory() {
     and_scene.addOptions([base]);
     //initialize game graph
     var story = new Graph(1);
-    story.addVertex(f1); //change event to start at different areas
+    story.addVertex(start); //change event to start at different areas
     return story;
 }

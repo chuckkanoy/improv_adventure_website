@@ -27,18 +27,18 @@ function gatherInfo() {
         console.log("You got them cheats, boi");
     }
 
-    //clear cookies before assigning them
-    clearCookies();
+    //clear local storage
+    clearStorage();
 
-    //assign variables to cookie for later use
-    setCookie("player", player, TIME);
-    setCookie("pres", pres, TIME);
-    setCookie("vp", vp, TIME);
-    setCookie("treasurer", treasurer, TIME);
-    setCookie("secretary", secretary, TIME);
-    setCookie("web", web, TIME);
-    setCookie("pc", pc, TIME);
-    setCookie("em", em, TIME);
+    //assign variables in local storage
+    localStorage.setItem("player", player);
+    localStorage.setItem("pres", pres);
+    localStorage.setItem("vp", vp);
+    localStorage.setItem("treasurer", treasurer);
+    localStorage.setItem("secretary", secretary);
+    localStorage.setItem("web", web);
+    localStorage.setItem("pc", pc);
+    localStorage.setItem("em", em);
 
     //verify the input before sending to a new page
     verify();
@@ -51,21 +51,13 @@ function verify() {
         "<br>Web Master: " + web + "<br>Publicity Coordinator: " + pc + "<br>Equipment Manager: " + em);
 }
 
-//function for creating a cookie
-function setCookie(cname, cvalue, exhrs) {
-    var d = new Date();
-    d.setTime(d.getTime + (exhrs * 60 * 60 * 1000));
-    var expires = "expires=" + d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/"
-}
-
-function clearCookies() {
-    setCookie("player", "", -1);
-    setCookie("pres", "", -1);
-    setCookie("vp", "", -1);
-    setCookie("treasurer", "", -1);
-    setCookie("secretary", "", -1);
-    setCookie("web", "", -1);
-    setCookie("pc", "", -1);
-    setCookie("em", "", -1);
+function clearStorage() {
+    localStorage.removeItem("player");
+    localStorage.removeItem("pres");
+    localStorage.removeItem("vp");
+    localStorage.removeItem("treasurer");
+    localStorage.removeItem("secretary");
+    localStorage.removeItem("web");
+    localStorage.removeItem("pc");
+    localStorage.removeItem("em");
 }
