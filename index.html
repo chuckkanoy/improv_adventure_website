@@ -15,63 +15,68 @@
 <body>
     <div id="container">
         <!--Gather variables for gameplay-->
-        <div id="opening">
-            <!--Javascript sources-->
-            <script src="graph.js"></script>
-            <script src="event.js"></script>
-            <script src="InputHandler.js"></script>
-            <script src="modalBox.js"></script>
-            <div id="game-container">
-                <div id="opening">
-                    Hello! Welcome to the TBD Adventure.
-                    <br>
-                    <br> Enter the following information about the club board:
-                    <br>
-                    <table>
-                        <form action="playing.html">
+        <form onsubmit=gatherInfo()>
+            <div id="opening">
+                <script src='input-handler.js'></script>
+                <script src="modal-box.js"></script>
+                <div id="game-container">
+                    <div id="opening">
+                        Hello! Welcome to the TBD Adventure.
+                        <br>
+                        <br> Enter the following information about the club board:
+                        <br>
+                        <table>
                             <tr>
                                 <td text-align="left">Enter name: </td>
-                                <td><input type="text" id="player" placeholder="YOUR NAME"></td>
+                                <td><input type="text" id="player" placeholder="YOUR NAME" pattern="[A-Za-z]"></td>
+                                <td id="playerValidated"></td>
                             </tr>
                             <tr>
                                 <td>President:</td>
                                 <td><input type="text" id="president" placeholder="PRESIDENT"></td>
+                                <td id="presidentValidated"></td>
                             </tr>
                             <tr>
                                 <td>Vice President:</td>
                                 <td><input type="text" id="vp" placeholder="VP"></td>
+                                <td id="vpValidated"></td>
                             </tr>
                             <tr>
                                 <td>Treasurer:</td>
                                 <td><input type="text" id="treasurer" placeholder="TREASURER"></td>
+                                <td id="treasurerValidated"></td>
                             </tr>
                             <tr>
                                 <td>Secretary:</td>
                                 <td><input type="text" id="secretary" placeholder="SECRETARY"></td>
+                                <td id="secretaryValidated"></td>
                             </tr>
                             <tr>
                                 <td>Webmaster:</td>
                                 <td><input type="text" id="webmaster" placeholder="WEBMASTER"></td>
+                                <td id="webValidated"></td>
                             </tr>
                             <tr>
                                 <td>Publicity Coordinator:</td>
                                 <td><input type="text" id="pc" placeholder="PUBLICITY COORDINATOR"></td>
+                                <td id="publicityValidated"></td>
                             </tr>
                             <tr>
                                 <td>Equipment Manager:</td>
                                 <td><input type="text" id="em" placeholder="EQUIPMENT MANAGER"></td>
+                                <td id="equipmentValidated"></td>
                             </tr>
-                        </form>
-                    </table>
-                    <br>
-                    <br> Once info has been entered, please click the "BEGIN" button!<br>
+                        </table>
+                        <br>
+                        <br> Once info has been entered, please click the "BEGIN" button!<br>
+                    </div>
                 </div>
-            </div>
-            <div id="options">
-                <!--Save info in javascript for later access-->
-                <button onclick="gatherInfo()"> BEGIN </button>
-            </div>
-            <div id="credit">A game by <a href="https://chuckkanoy.github.io/WebsitePortfolio/">Chuck Kanoy</a></div>
+                <div id="options">
+                    <!--Save info in javascript for later access-->
+                    <button type="submit"> BEGIN </button>
+                </div>
+        </form>
+        <div id="credit">A game by <a href="https://chuckkanoy.github.io/WebsitePortfolio/">Chuck Kanoy</a></div>
 
         </div>
     </div>
@@ -89,7 +94,7 @@
     </div>
     <!-- Warning box for cookies -->
     <div id="warning">
-        <p id="cookies-message">This website uses cookies to improve user experience!</p>
+        <p id="cookies-message">This website uses cookies to improve your experience!</p>
         <button id="close">&times;</button>
     </div>
     <script>

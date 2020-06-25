@@ -1,5 +1,5 @@
 //class for each event in game
-class Event {
+class Section {
     //creates object of Event class
     constructor(title, message, options) {
         this.title = title;
