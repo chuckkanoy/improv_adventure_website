@@ -9,14 +9,12 @@
 </head>
 
 <body>
-    <!--Javascript sources-->
     <script src="setup.js"></script>
     <script src="section.js"></script>
     <script src="input-handler.js"></script>
     <script src="story.js"></script>
 
     <div id="container">
-        <!--Actually display game-->
         <div id="playing">
             <div id="game-container">
                 <div id="game-message"></div>
@@ -24,27 +22,22 @@
             <div id="options"></div>
 
             <script>
-                //get graph for use
                 var story = generateStory();
 
-                //display the options of the current event
                 function displayData() {
-                    //refresh options HTML tag
                     document.getElementById("options").innerHTML = "";
 
                     if (story.currentVertex.title == "End") {
                         window.location.href = "game-over.html";
                     } else {
-                        //display appropriate message for event
                         document.getElementById("game-message").innerHTML = "<h1>" + story.currentVertex.title + "</h1>" + story.currentVertex.message;
-                        //display appropriate option in a button
+
                         for (i = 0; i < story.currentVertex.options.length; i++) {
                             document.getElementById("options").innerHTML += "<button onClick=\"transferOption(" + i + ")\">" + story.currentVertex.options[i].toString() + "</button><br>";
                         }
                     }
                 }
 
-                //functionality of buttons
                 function transferOption(i) {
                     story.currentVertex = story.currentVertex.options[i];
                     displayData();

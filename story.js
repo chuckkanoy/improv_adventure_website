@@ -1,15 +1,19 @@
-//declare variables for local use
-var player, pres, vp, treasurer, secretary, web, pc, em;
-var player = localStorage.getItem("player");
-var pres = localStorage.getItem("pres");
-var vp = localStorage.getItem("vp");
-var treasurer = localStorage.getItem("treasurer");
-var secretary = localStorage.getItem("secretary");
-var web = localStorage.getItem("web");
-var pc = localStorage.getItem("pc");
-var em = localStorage.getItem("em");
+var player = JSON.parse(localStorage.getItem("player_data")).player;
+var pres = JSON.parse(localStorage.getItem("player_data")).pres;
+var vp = JSON.parse(localStorage.getItem("player_data")).vp;
+var treasurer = JSON.parse(localStorage.getItem("player_data")).treasurer;
+var secretary = JSON.parse(localStorage.getItem("player_data")).secretary;
+var web = JSON.parse(localStorage.getItem("player_data")).web;
+var pc = JSON.parse(localStorage.getItem("player_data")).pc;
+var em = JSON.parse(localStorage.getItem("player_data")).em;
 
-//reinitialize variables if necessary
+function reassign(from, to) {
+    if (from == undefined || from == "") {
+        return to;
+    }
+    return from;
+}
+
 player = reassign(player, "YOU");
 pres = reassign(pres, "DENT, PRESI DENT");
 vp = reassign(vp, "CLAMPY HAMS");
@@ -19,15 +23,6 @@ web = reassign(web, "WEB MASTER MIXER");
 pc = reassign(pc, "TEE PUBLIC");
 em = reassign(em, "MAN \"i got that thang on me\" AGER");
 
-//reassign variables if not defined
-function reassign(from, to) {
-    if (from == undefined || from == "") {
-        return to;
-    }
-    return from;
-}
-
-//parse string to have appropriate variables or HTML tags
 function parseChunk(chunk) {
     chunk.replace("PLAYER", player);
     chunk.replace("PRES", pres);
@@ -40,7 +35,10 @@ function parseChunk(chunk) {
     chunk.replace("\n", "<br>");
 }
 
-//story generation through event objects
+function makeImage(source, width, height) {
+    return "<img src = \"" + source + "\" style=\"width:" + width + "px; height:" + height + "px;\">";
+}
+
 function generateStory() {
     //EVENTS
     //ENDING EVENTS
@@ -153,7 +151,7 @@ function generateStory() {
     var intro2 = new Section("Bunny Bunny", "You bunny bunny over to " + treasurer + " and the game continues over and over.", [base]);
     var intro1 = new Section("Nothing", "You do nothing and everyone looks at you including " + vp + " who runs up and smacks a poster to your forehead.", [base]);
     var start = new Section("Beginning", "Welcome to the improv, " + player + ", where things are about to get a little strange.<br>Let's start with a little warmup. Bunny Bunny...", [intro1, intro2, intro3]);
-    //additional options for events
+
     hammer.addOptions([h3, h4]);
     h_build.addOptions([h_build1]);
     h_build1.addOptions([h_build11]);
@@ -172,7 +170,7 @@ function generateStory() {
     f12.addOptions([f1_1]);
     f13.addOptions([f1_1]);
     and_scene.addOptions([base]);
-    //initialize game graph
+
     var story = new Setup(1);
     story.addInitial(start); //change event to start at different areas
     return story;

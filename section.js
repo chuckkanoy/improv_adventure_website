@@ -1,6 +1,4 @@
-//class for each event in game
 class Section {
-    //creates object of Event class
     constructor(title, message, options) {
         this.title = title;
         this.message = message;
@@ -10,14 +8,12 @@ class Section {
         }
     }
 
-    //adds an option if necessary
     addOptions(optionsUsed) {
         for (var i = 0; i < optionsUsed.length; i++) {
             this.options.push(optionsUsed[i]);
         }
     }
 
-    //prints different elements of event
     toString() {
         return this.title;
     }

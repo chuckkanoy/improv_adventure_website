@@ -9,10 +9,9 @@
 </head>
 
 <body>
-    <!--Javascript sources-->
-    <script src="graph.js"></script>
-    <script src="event.js"></script>
-    <script src="InputHandler.js"></script>
+    <script src="story.js"></script>
+    <script src="section.js"></script>
+    <script src="input-handler.js"></script>
 
     <div id="container">
         <div id="game-container">
@@ -28,11 +27,11 @@
             <a href="index.html"><button type="button" id="option3" onClick="restart()">RESTART</button></a>
             <script>
                 function restart() {
-                    //reset the graph
                     story.currentVertex = start;
                 }
             </script>
         </div>
+        <!-- UPDATE URL WHEN NECESSARY -->
         <div id="credit">A game by <a href="https://chuckkanoy.github.io/WebsitePortfolio/">Chuck Kanoy</a></div>
     </div>
     </div>
