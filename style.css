@@ -14,7 +14,7 @@ body {
 /* Display for story content */
 
 #game-container {
-    border-radius: 45px;
+    border-radius: 10px;
     border-style: solid;
     border-width: thick;
     border-color: rgb(97, 91, 94);
@@ -144,7 +144,7 @@ h1 {
     margin: 15% auto;
     /* 15% from the top and centered */
     padding: 20px;
-    border-radius: 45px;
+    border-radius: 10px;
     border-style: solid;
     border-width: thick;
     border-color: rgb(97, 91, 94);

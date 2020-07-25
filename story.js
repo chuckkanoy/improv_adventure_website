@@ -24,15 +24,16 @@ pc = reassign(pc, "TEE PUBLIC");
 em = reassign(em, "MAN \"i got that thang on me\" AGER");
 
 function parseChunk(chunk) {
-    chunk.replace("PLAYER", player);
-    chunk.replace("PRES", pres);
-    chunk.replace("VP", vp);
-    chunk.replace("TREASURER", treasurer);
-    chunk.replace("SECRETARY", secretary);
-    chunk.replace("PC", pc);
-    chunk.replace("WEB", web);
-    chunk.replace("EM", em);
-    chunk.replace("\n", "<br>");
+    chunk = chunk.replace("PLAYER", player);
+    chunk = chunk.replace("PRES", pres);
+    chunk = chunk.replace("VP", vp);
+    chunk = chunk.replace("TREASURER", treasurer);
+    chunk = chunk.replace("SECRETARY", secretary);
+    chunk = chunk.replace("PC", pc);
+    chunk = chunk.replace("WEB", web);
+    chunk = chunk.replace("EM", em);
+    chunk = chunk.replace("\n", "<br>");
+    return chunk;
 }
 
 function makeImage(source, width, height) {
@@ -137,10 +138,14 @@ function generateStory() {
     f13 = new Section("Eternity", "You take a moment to look around your almost mythical sushi shack. You all have worked for an eternity to get this setup exactly right in hopes that the <b>big one</b> will come. Suddenly from the center of the room, " + pres + " starts to tug at the fishing pole. The room begins to shake all about. " +
         "Things fall off of walls. From the hole comes a 7 1/2 foot mythical red snapper.<br><br>You all have finally done it.<br>" + vp + " sheds a tear.<br>You gleem with pride.<br>" + secretary + " and " + pres + " play patty cake in excitement.");
     f1_1 = new Section("Continue", "On and on your sushi shack goes.<br>When it ends, everyone knows.<br>It's when you click on that button and decide it does.<br>Go ahead and relax hear just because.<br><br>Yeesh, corny.", [and_scene]);
+    //egg branch
+    e1 = new Section("Raise It", parseChunk(`EM: What an interesting thing you've got there.\nPLAYER: Thank you, I got it from the fridge.`));
     //events for object suggestions
     var hammer = new Section("Hammer", "As a jack of all trades, you pick this ALL POWERFUL tool.<br><br><br><sub><small>(please don't use it as a weapon)</small></sub>", [h_weapon, h_build]);
     var fish = new Section("Fish", "Black! White! Fish!<br>You've taken the LITERAL suggestion of fish. This is gonna be good.<br><br>What business do you have with <i>fish</i>?");
-    var egg = new Section("Egg", "You hear the notorious improv suggestion for egg, and you snag the opportunity for some \"clucking\" awesome improv.");
+    var egg = new Section("Egg", parseChunk(`You hear the notorious improv suggestion for egg, and you snag the opportunity for some \"clucking\" awesome improv.\nSECRETARY
+                What're you gonna do with an egg?`));
+    console.log(egg);
     //events for general suggestion types
     var s_activity = new Section("Activity", player + ": What's an activity you'd do on the weekend?");
     var s_location = new Section("Location", player + ": Give me a non-geographical location!<br>The suggestions flood in from all over the room.");
@@ -156,7 +161,7 @@ function generateStory() {
     h_build.addOptions([h_build1]);
     h_build1.addOptions([h_build11]);
     h_build3.addOptions([h_build31, h_build32]);
-    h_build32.addOptions([h_build321])
+    h_build32.addOptions([h_build321]);
     h3.addOptions([h31, h32]);
     h31.addOptions([h311, h312]);
     h32.addOptions([h321]);
@@ -165,6 +170,7 @@ function generateStory() {
     h41.addOptions([h411, h412]);
     h412.addOptions([h4121, h4122]);
     h43.addOptions([h431, h432]);
+    fish.addOptions([f1]);
     f1.addOptions([f11, f12, f13]);
     f11.addOptions([f1_1]);
     f12.addOptions([f1_1]);
@@ -172,6 +178,6 @@ function generateStory() {
     and_scene.addOptions([base]);
 
     var story = new Setup(1);
-    story.addInitial(start); //change event to start at different areas
+    story.addInitial(e1); //change event to start at different areas
     return story;
 }
