@@ -139,13 +139,22 @@ function generateStory() {
         "Things fall off of walls. From the hole comes a 7 1/2 foot mythical red snapper.<br><br>You all have finally done it.<br>" + vp + " sheds a tear.<br>You gleem with pride.<br>" + secretary + " and " + pres + " play patty cake in excitement.");
     f1_1 = new Section("Continue", "On and on your sushi shack goes.<br>When it ends, everyone knows.<br>It's when you click on that button and decide it does.<br>Go ahead and relax hear just because.<br><br>Yeesh, corny.", [and_scene]);
     //egg branch
-    e1 = new Section("Raise It", parseChunk(`EM: What an interesting thing you've got there.\nPLAYER: Thank you, I got it from the fridge.`));
+    e1 = new Section("Show It Off", parseChunk(`EM: Ohhh, I like the egg you have there.\nPLAYER: Thanks! I got this golden egg from the golden egg store.\nEM: Whaaaaat? That's absolutely bananas.\nPLAYER: No, it's an egg.\nEM: Ahaha, silly goose, this is improve, those MUST be bananas.\nPLAYER: Wha... 
+                    How are you doing that?\nEM: MWAHAHAHAHA!\n\nYou pass out from the sheer power of EM. I'm so sorry.`));
+    e2 = new Section("Raise It", parseChunk(`To keep the egg warm, you stick it in your armpit. After 20 minutes of incubating in the armpit, your egg begins to crack
+                        . A tear leaves your eye as you think you have killed any chance of being the wonderful parent of whatever creature could come from the egg.`));
+    e21 = new Section("Continue", parseChunk(`You remember that eggs that go to market usually aren't fertilized, and you forgot you got this bad boy from there. With one of the
+                        best smiles ever seen by humans, you cook up a small omelet and gulp it down.`), [good_ending]);
+    e22 = new Section("Continue", parseChunk(`Suddenly, you see a scale nose poke out of the crack. The rest of the head pops out, and you realize what it is. This little baby is
+                        an alligator. You set aside your deathly fear of reptilians to raise the alligator as your own.`), [good_ending]);
+    e23 = new Section("Continue", parseChunk(`Suddenly, you see a beak poke out of the crack. It's a little baby chick. Congratulations. :)`), [good_ending]);
+    e24 = new Section("Continue", parseChunk(`A darkness seeps from the crack in the egg. You hear a deep, gurgled laugh emit from the egg. Looking closer, you see two horns and red
+                        eyes looking back at you. This creature, whatever it is, is most definitely not friendly.`), [bad_ending]);
     //events for object suggestions
     var hammer = new Section("Hammer", "As a jack of all trades, you pick this ALL POWERFUL tool.<br><br><br><sub><small>(please don't use it as a weapon)</small></sub>", [h_weapon, h_build]);
     var fish = new Section("Fish", "Black! White! Fish!<br>You've taken the LITERAL suggestion of fish. This is gonna be good.<br><br>What business do you have with <i>fish</i>?");
-    var egg = new Section("Egg", parseChunk(`You hear the notorious improv suggestion for egg, and you snag the opportunity for some \"clucking\" awesome improv.\nSECRETARY
+    var egg = new Section("Egg", parseChunk(`You hear the notorious improv suggestion for egg, and you snag the opportunity for some \"clucking\" awesome improv.\nSECRETARY:
                 What're you gonna do with an egg?`));
-    console.log(egg);
     //events for general suggestion types
     var s_activity = new Section("Activity", player + ": What's an activity you'd do on the weekend?");
     var s_location = new Section("Location", player + ": Give me a non-geographical location!<br>The suggestions flood in from all over the room.");
@@ -155,7 +164,7 @@ function generateStory() {
     var intro3 = new Section("Macarena", "You do the macarena.<br>Everyone cheers you on.", [base]);
     var intro2 = new Section("Bunny Bunny", "You bunny bunny over to " + treasurer + " and the game continues over and over.", [base]);
     var intro1 = new Section("Nothing", "You do nothing and everyone looks at you including " + vp + " who runs up and smacks a poster to your forehead.", [base]);
-    var start = new Section("Beginning", "Welcome to the improv, " + player + ", where things are about to get a little strange.<br>Let's start with a little warmup. Bunny Bunny...", [intro1, intro2, intro3]);
+    start = new Section("Beginning", "Welcome to the improv, " + player + ", where things are about to get a little strange.<br>Let's start with a little warmup. Bunny Bunny...", [intro1, intro2, intro3]);
 
     hammer.addOptions([h3, h4]);
     h_build.addOptions([h_build1]);
@@ -175,9 +184,29 @@ function generateStory() {
     f11.addOptions([f1_1]);
     f12.addOptions([f1_1]);
     f13.addOptions([f1_1]);
+    egg.addOptions([e1, e2]);
+    e1.addOptions([bad_ending]);
+    eggIntGenerator = Math.floor(Math.random() * Math.floor(3));
+    switch (eggIntGenerator) {
+        case 0:
+            e2.addOptions([e21]);
+            break;
+        case 1:
+            e2.addOptions([e22]);
+            break;
+        case 2:
+            e2.addOptions([e23]);
+            break;
+        case 3:
+            e2.addOptions([e24]);
+            break;
+    }
+
     and_scene.addOptions([base]);
 
+    base.removeOptions([s_activity, s_location]);
+
     var story = new Setup(1);
-    story.addInitial(e1); //change event to start at different areas
+    story.addInitial(e2); //change event to start at different areas
     return story;
 }
