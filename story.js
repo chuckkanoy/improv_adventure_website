@@ -207,6 +207,6 @@ function generateStory() {
     base.removeOptions([s_activity, s_location]);
 
     var story = new Setup(1);
-    story.addInitial(e2); //change event to start at different areas
+    story.addInitial(start); //change event to start at different areas
     return story;
 }
